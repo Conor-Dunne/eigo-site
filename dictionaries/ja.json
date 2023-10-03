@@ -1,0 +1,16 @@
+{
+    "navigation": {
+      "home": "トプ",
+      "about": "につて"
+    },
+    "page": {
+      "home": {
+        "title": "こにちわ",
+        "description": "Internationalization in NextJs 13 App router"
+      },
+      "about": {
+        "title": "コンセプト",
+        "description": "This is the about page"
+      }
+    }
+  }
