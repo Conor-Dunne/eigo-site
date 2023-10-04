@@ -8,16 +8,16 @@ export default async function Header({ lang }: { lang: Locale }) {
 
   return (
     <header className=' bg-slate-900 text-white font-semibold shadow-md'>
-          <nav className=" container max-w-4xl flex justify-between items-center px-5 py-5">
+          <nav className=" container max-w-4xl flex flex-wrap gap-3 justify-between items-center px-5 py-5">
           <ul className='flex justify-around items-center gap-3'>
           <li>
             <Link href={`/${lang}`}>{navigation.home}</Link>
           </li>
           <li>
-            <Link href={`/${lang}/about`}>{navigation.about}</Link>
+            <Link href={`/${lang}/articles`}>Articles</Link>
           </li>
           <li>
-            <Link href={`/${lang}/articles`}>Articles</Link>
+            <Link href={`/${lang}/about`}>{navigation.about}</Link>
           </li>
         </ul>
         <LocaleSwitcher />

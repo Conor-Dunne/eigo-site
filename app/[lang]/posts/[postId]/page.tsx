@@ -1,4 +1,4 @@
-// import getFormattedDate from "@/lib/getFormattedDate"
+import getFormattedDate from "@/lib/getFormattedDate"
 // import { getSortedPostsData, getPostData } from "../../../../lib/posts"
 // import { getSortedPostsData, getPostData } from "../../../../lib/posts"
 import { getSortedPostsData, getPostData } from "@/lib/posts";
@@ -6,6 +6,8 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import Image from "next/image"
 import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm'
+
 
 export function generateStaticParams() {
     const posts = getSortedPostsData()
@@ -33,7 +35,7 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
     }
 }
 
-export default async function Post({ params }: { params: { postId: string } }) {
+export default async function Post({ params }: { params: { postId: string } },) {
 
     const posts = getSortedPostsData()
     const { postId } = params
@@ -42,14 +44,14 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
     const { title, date, contentHtml, img } = await getPostData(postId)
 
-    // const pubDate = getFormattedDate(date)
+    const pubDate = getFormattedDate(date)
 
     return (
         <main className=" container prose prose-xl prose-slate mx-auto mt-10  md:mt-40">
             <h1 className="text-3xl mt-4 mb-0">{title}</h1>
-            {/* <p className="mt-0">
+            <p className="mt-0">
                 {pubDate}
-            </p> */}
+            </p>
             <article>
             <Image
                 src={img}
@@ -58,8 +60,8 @@ export default async function Post({ params }: { params: { postId: string } }) {
                 alt="Picture of the author"
             />
 
-                {/* <ReactMarkdown>{contentHtml}</ReactMarkdown> "see if this is better than dangerous html?" */}
-                <section dangerouslySetInnerHTML={{ __html: contentHtml }} />
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{contentHtml}</ReactMarkdown>
+                {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
                 <p>
                     <Link href="/">← Back to home</Link>
                 </p>

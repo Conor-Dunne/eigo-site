@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-// import getFormattedDate from "@/lib/getFormattedDate"
+import getFormattedDate from "@/lib/getFormattedDate"
 
 type Props = {
     post: BlogPost
@@ -8,7 +8,7 @@ type Props = {
 
 export default function ListItem({ post }: Props) {
     const { id, title, date, img } = post
-    // const formattedDate = getFormattedDate(date)
+    const formattedDate = getFormattedDate(date)
     console.log(post)
 
     return (
@@ -23,7 +23,7 @@ export default function ListItem({ post }: Props) {
                 />
             </div>            <Link className=" font-bold text- hover:text-black/70 dark:hover:text-white" href={`/posts/${id}`}>{title}</Link>
             <br />
-            {/* <p className="text-sm mt-1">{formattedDate}</p> */}
+            <p className="text-sm mt-1">{formattedDate}</p>
 
             </div>
     )
