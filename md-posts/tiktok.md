@@ -10,7 +10,7 @@ tags:
     - Advertising
 ---
 
-# TikTok Tests Ad-Free Subscription
+## TikTok Tests Ad-Free Subscription
 
 TikTok, the popular video-sharing platform, is experimenting with a new way to enhance your TikTok experience. They are testing a monthly subscription service that removes ads from your TikTok feed.
 
@@ -56,9 +56,12 @@ Stay tuned for more updates on this exciting development in the world of social 
 
 ---
 
-## Key Words and Translations (キーワードと翻訳)
+#### Key Words and Translations 
+#### (キーワードと翻訳)
 
-| English           | Japanese Translation (日本語訳) |
+---
+
+| English           | (日本語訳) |
 |-------------------|-----------------------------|
 | TikTok            | ティックトック                 |
 | subscription      | 定期購読                      |

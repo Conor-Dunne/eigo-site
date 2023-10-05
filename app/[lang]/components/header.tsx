@@ -2,19 +2,18 @@ import Link from 'next/link'
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import LocaleSwitcher from './locale-switcher'
+import { HiOutlineHome} from  "react-icons/hi";
 
 export default async function Header({ lang }: { lang: Locale }) {
   const { navigation } = await getDictionary(lang)
 
+
   return (
     <header className=' bg-slate-900 text-white font-semibold shadow-md'>
-          <nav className=" container max-w-4xl flex flex-wrap gap-3 justify-between items-center px-5 py-5">
-          <ul className='flex justify-around items-center gap-3'>
+          <nav className=" max-w-8xl flex flex-col md:flex-row gap-3 justify-center sm:justify-around items-center px-5 py-5">
+          <ul className='flex justify-between items-center gap-12 text-xl'>
           <li>
-            <Link href={`/${lang}`}>{navigation.home}</Link>
-          </li>
-          <li>
-            <Link href={`/${lang}/articles`}>Articles</Link>
+          <Link href={`/${lang}`}><HiOutlineHome className=" text-2xl"/></Link>
           </li>
           <li>
             <Link href={`/${lang}/about`}>{navigation.about}</Link>

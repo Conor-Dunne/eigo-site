@@ -5,12 +5,12 @@
     },
     "page": {
       "home": {
-        "title": "Welcome to NextJs i18n",
-        "description": "Internationalization in NextJs 13 App router"
+        "title": "Welcome",
+        "description": "Elevate Your World, Sentence by Sentence, word by word! 📖"
       },
       "about": {
-        "title": "About Us",
-        "description": "This is the about page"
+        "title": "About me",
+        "description": "Hello! I've been residing in Japan for seven years, during which I've had the privilege of teaching English to thousands of students. I've always emphasized the importance of extensive reading to enhance vocabulary and comprehension skills. That's precisely why I've established this website—a gift to all my students, both past and future!"
       }
     }
   }

@@ -6,11 +6,11 @@
     "page": {
       "home": {
         "title": "こにちわ",
-        "description": "Internationalization in NextJs 13 App router"
+        "description": "一文ずつ、一語ずつ、世界を高みへ！ 📖"
       },
       "about": {
-        "title": "コンセプト",
-        "description": "This is the about page"
+        "title": "僕について",
+        "description": "こんにちは！私は日本に７年間住んでいて、その間何千人もの生徒に英語を教えています。いつも語彙力と理解力を向上させるために、たくさん読書することが非常に重要だと言っています。このウェブサイトは、過去と未来のすべての生徒さんへの贈り物です"
       }
     }
   }
