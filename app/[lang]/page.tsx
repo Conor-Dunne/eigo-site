@@ -17,12 +17,12 @@ export default async function Home({
   return (
     <>
       <Hero />
-      <div className="container">
-        <div className="flex justify-center py-6">
-        <h2 className=" text-lg md:text-2xl font-extrabold text-center">{page.home.description}</h2>
+      <div>
+        <div className="flex justify-center py-10">
+        <h2 className=" text-md font-light text-slate-500 text-center">{page.home.description}</h2>
 
         </div>
-        <section className=" container grid grid-cols-1 md:grid-cols-2 gap-1 justify-items-center">
+        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-3 xl:px-40">
         {posts.map(post => (
                 <ListItem key={post.id} post={post} />
             ))}

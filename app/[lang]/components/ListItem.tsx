@@ -9,11 +9,11 @@ type Props = {
 export default function ListItem({ post }: Props) {
     const { id, title, date, img } = post
     const formattedDate = getFormattedDate(date)
-    console.log(post)
 
     return (
-            <div className="flex flex-col gap-3 w-full shadow-md p-2">
-<div className="w-full h-44 overflow-hidden"> {/* Adjust the height as needed */}
+        <Link className=" font-bold text- hover:text-black/70 dark:hover:text-white" href={`/posts/${id}`}>
+            <div className="flex flex-col gap-3 w-full p-2 mb-3">
+<div className="w-full h-60 overflow-hidden"> {/* Adjust the height as needed */}
                 <Image
                     src={img}
                     width={600}
@@ -21,10 +21,12 @@ export default function ListItem({ post }: Props) {
                     alt="Picture of the author"
                     className="object-cover w-full h-full" 
                 />
-            </div>            <Link className=" font-bold text- hover:text-black/70 dark:hover:text-white" href={`/posts/${id}`}>{title}</Link>
-            <br />
-            <p className="text-sm mt-1">{formattedDate}</p>
-
+            </div>       
+            <div className="flex flex-col gap-2">
+            <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p>
+            <h2>{title}</h2> 
             </div>
+                </div>    
+            </Link>
     )
 }

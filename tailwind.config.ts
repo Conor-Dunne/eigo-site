@@ -17,6 +17,9 @@ const config: Config = {
         '2xl': '6rem',
       },
     },
+    animation: {
+      'bounce-slow': 'bounce 20s linear infinite',
+    }
   },
   plugins: [
     require('@tailwindcss/typography'),
