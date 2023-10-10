@@ -7,6 +7,7 @@ import Link from "next/link"
 import Image from "next/image"
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm'
+import Example from "../../components/vocab-menu";
 
 
 export function generateStaticParams() {
@@ -48,6 +49,7 @@ export default async function Post({ params }: { params: { postId: string } },) 
 
     return (
         <main className=" container prose prose-lg prose-slate mx-auto mt-10 md:mt-20">
+                        < Example />
             <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
             <p className="mt-0">
                 {pubDate}
@@ -66,6 +68,7 @@ export default async function Post({ params }: { params: { postId: string } },) 
                     <Link href="/">← Back to home</Link>
                 </p>
             </article>
+
         </main>
     )
 }
