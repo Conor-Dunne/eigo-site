@@ -18,7 +18,7 @@ export default function Example() {
     <div className="relative z-10">
       <button
         type="button"
-        className="fixed top-4 right-4 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+        className="fixed bottom-4 right-4 text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
         onClick={openSlideOver}
       >
         Open
@@ -60,7 +60,7 @@ export default function Example() {
                       leaveFrom="opacity-100"
                       leaveTo="opacity-0"
                     >
-                      <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                      <div className="absolute left-2 bottom-6 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
                         <button
                           type="button"
                           className="relative rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
