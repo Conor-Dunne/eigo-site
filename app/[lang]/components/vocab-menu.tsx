@@ -79,7 +79,216 @@ export default function Example() {
                         </Dialog.Title>
                       </div>
                       <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                        {/* Your content */}
+                        <ul>
+                          <li>
+                            <strong>English:</strong> Apple{" "}
+                            <span>(Japanese: りんご)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Banana{" "}
+                            <span>(Japanese: バナナ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Cat{" "}
+                            <span>(Japanese: 猫)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Dog{" "}
+                            <span>(Japanese: 犬)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Elephant{" "}
+                            <span>(Japanese: 象)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Flower{" "}
+                            <span>(Japanese: 花)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Guitar{" "}
+                            <span>(Japanese: ギター)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Hat{" "}
+                            <span>(Japanese: 帽子)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Ice Cream{" "}
+                            <span>(Japanese: アイスクリーム)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Jellyfish{" "}
+                            <span>(Japanese: クラゲ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Kangaroo{" "}
+                            <span>(Japanese: カンガルー)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Lemon{" "}
+                            <span>(Japanese: レモン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Monkey{" "}
+                            <span>(Japanese: 猿)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Notebook{" "}
+                            <span>(Japanese: ノート)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Orange{" "}
+                            <span>(Japanese: オレンジ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Penguin{" "}
+                            <span>(Japanese: ペンギン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Quokka{" "}
+                            <span>(Japanese: クオッカ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Rabbit{" "}
+                            <span>(Japanese: ウサギ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Strawberry{" "}
+                            <span>(Japanese: いちご)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Tiger{" "}
+                            <span>(Japanese: 虎)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Umbrella{" "}
+                            <span>(Japanese: 傘)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Violin{" "}
+                            <span>(Japanese: バイオリン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Watermelon{" "}
+                            <span>(Japanese: スイカ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Xylophone{" "}
+                            <span>(Japanese: シロフォン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Yak{" "}
+                            <span>(Japanese: ヤク)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Zebra{" "}
+                            <span>(Japanese: ゼブラ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Apple{" "}
+                            <span>(Japanese: りんご)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Banana{" "}
+                            <span>(Japanese: バナナ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Cat{" "}
+                            <span>(Japanese: 猫)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Dog{" "}
+                            <span>(Japanese: 犬)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Elephant{" "}
+                            <span>(Japanese: 象)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Flower{" "}
+                            <span>(Japanese: 花)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Guitar{" "}
+                            <span>(Japanese: ギター)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Hat{" "}
+                            <span>(Japanese: 帽子)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Ice Cream{" "}
+                            <span>(Japanese: アイスクリーム)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Jellyfish{" "}
+                            <span>(Japanese: クラゲ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Kangaroo{" "}
+                            <span>(Japanese: カンガルー)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Lemon{" "}
+                            <span>(Japanese: レモン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Monkey{" "}
+                            <span>(Japanese: 猿)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Notebook{" "}
+                            <span>(Japanese: ノート)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Orange{" "}
+                            <span>(Japanese: オレンジ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Penguin{" "}
+                            <span>(Japanese: ペンギン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Quokka{" "}
+                            <span>(Japanese: クオッカ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Rabbit{" "}
+                            <span>(Japanese: ウサギ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Strawberry{" "}
+                            <span>(Japanese: いちご)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Tiger{" "}
+                            <span>(Japanese: 虎)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Umbrella{" "}
+                            <span>(Japanese: 傘)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Violin{" "}
+                            <span>(Japanese: バイオリン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Watermelon{" "}
+                            <span>(Japanese: スイカ)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Xylophone{" "}
+                            <span>(Japanese: シロフォン)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Yak{" "}
+                            <span>(Japanese: ヤク)</span>
+                          </li>
+                          <li>
+                            <strong>English:</strong> Zebra{" "}
+                            <span>(Japanese: ゼブラ)</span>
+                          </li>
+                        </ul>
                       </div>
                     </div>
                   </Dialog.Panel>
