@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={inter.className}>
-    <div className="max-w-9xl mx-auto">
+    <div className=" relative max-w-9xl mx-auto">
        <Header lang={params.lang} />
         {children}
        </div>
