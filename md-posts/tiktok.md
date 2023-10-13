@@ -54,12 +54,8 @@ So, whether you're used to ads or looking forward to an ad-free TikTok, it's cle
 
 Stay tuned for more updates on this exciting development in the world of social media!
 
----
 
 #### Key Words and Translations 
-#### (キーワードと翻訳)
-
----
 
 | English           | (日本語訳) |
 |-------------------|-----------------------------|
