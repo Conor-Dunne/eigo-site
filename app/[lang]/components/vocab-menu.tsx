@@ -1,11 +1,6 @@
 "use client";
 import {
   Fragment,
-  JSXElementConstructor,
-  PromiseLikeOfReactNode,
-  ReactElement,
-  ReactNode,
-  ReactPortal,
   useState,
 } from "react";
 import { Dialog, Transition } from "@headlessui/react";

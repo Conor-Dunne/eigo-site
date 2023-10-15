@@ -16,13 +16,13 @@ export default function LocaleSwitcher() {
   }
 
   return (
-    <ul className='flex gap-x-3 items-end'>
+    <ul className='flex gap-x-3 items-center justify-center'>
       {i18n.locales.map(locale => {
         return (
           <li key={locale}>
             <Link
               href={redirectedPathName(locale)}
-              className='rounded-md border bg-black px-2 py-1 text-white text-sm'
+              className='rounded-md border bg-black px-2 py-1 text-white text-sm font-thin'
             >
               { locale === 'ja' ? "日本語" : "English" }
             </Link>
