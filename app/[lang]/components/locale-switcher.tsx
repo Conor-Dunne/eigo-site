@@ -22,7 +22,7 @@ export default function LocaleSwitcher() {
           <li key={locale}>
             <Link
               href={redirectedPathName(locale)}
-              className='rounded-md border bg-black px-2 py-1 text-white text-sm font-thin'
+              className='rounded-md border bg-black px-2 py-1 text-white text-sm font-light'
             >
               { locale === 'ja' ? "日本語" : "English" }
             </Link>
