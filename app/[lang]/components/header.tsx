@@ -10,7 +10,7 @@ export default async function Header({ lang }: { lang: Locale }) {
 
 
   return (
-    <header className=' sticky top-0 bg-slate-900  text-white font-semibold shadow-md'>
+    <header className=' sticky top-0 shadow-md'>
       <NavMenu lang={lang} navigation={navigation} />
     </header>
   )
