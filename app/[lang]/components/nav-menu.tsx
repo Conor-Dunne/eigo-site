@@ -37,13 +37,15 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
         <LocaleSwitcher />
       </nav>
       {/* Mobile Menu */}
-      <nav className={`relative flex flex-col  bg-slate-900  text-white  md:hidden font-md gap-4 transition-all ${ nav ? "py-6" : "pb-16"}`}>
+      <nav
+        className={`relative flex flex-col  bg-slate-900  text-white  md:hidden font-md gap-4 transition-all z-10 ${
+          nav ? "py-6" : "pb-16"
+        }`}
+      >
         <ul className={`${showNavCss}${!nav ? hideNavCss : null}`}>
-        <li>
-            <button
-            onClick={() => setNav(!nav)}
-            >
-            <Link href={`/${lang}/about`}>{navigation.about}</Link>
+          <li>
+            <button onClick={() => setNav(!nav)}>
+              <Link href={`/${lang}/about`}>{navigation.about}</Link>
             </button>
           </li>
           <li>
@@ -51,10 +53,13 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
           </li>
         </ul>
         <button
-        onClick={() => { nav ? setNav(!nav) : null}}>
-        <Link href={`/${lang}`}>
-          <HiOutlineHome className=" absolute top-0 left-0 mt-5 ml-2 text-2xl" />
-        </Link>
+          onClick={() => {
+            nav ? setNav(!nav) : null;
+          }}
+        >
+          <Link href={`/${lang}`}>
+            <HiOutlineHome className=" absolute top-0 left-0 mt-5 ml-2 text-2xl" />
+          </Link>
         </button>
 
         <div className=" absolute top-0 right-0 mt-5 mr-2 font-bold text-xl">
@@ -63,6 +68,12 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
           </button>
         </div>
       </nav>
+      {nav && (
+        <div
+          className=" w-full h-screen bg-gray-300 opacity-50 cursor-pointer"
+          onClick={() => setNav(false)}
+        ></div>
+      )}
     </>
   );
 }
