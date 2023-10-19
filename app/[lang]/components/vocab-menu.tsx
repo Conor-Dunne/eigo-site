@@ -7,14 +7,22 @@ import { Dialog, Transition } from "@headlessui/react";
 import { XMarkIcon } from "@heroicons/react/24/outline";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import { Locale } from "@/i18n.config";
 
 
 
 interface VocabSideMenuProps {
   vocabList: string;
+  lang: Locale;
+  page: {
+    post: {
+      vocabBtn: string;
+    };
+  };
 }
 
-export default function VocabSideMenu({vocabList} : VocabSideMenuProps) {
+
+export default function VocabSideMenu({ vocabList, lang, page }: VocabSideMenuProps) {
   const [open, setOpen] = useState(false);
 
   const openSlideOver = () => {
@@ -32,7 +40,7 @@ export default function VocabSideMenu({vocabList} : VocabSideMenuProps) {
         className="fixed bottom-4 right-4 bg-slate-900 rounded-md text-white px-2 py-1 hover:text-white focus:outline-none focus:ring-2 focus:ring-white shadow-lg"
         onClick={openSlideOver}
       >
-        vocab
+        {page.post.vocabBtn}
       </button>
 
       <Transition.Root show={open} as={Fragment}>
@@ -86,7 +94,7 @@ export default function VocabSideMenu({vocabList} : VocabSideMenuProps) {
                     <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                       <div className="px-4 sm:px-6">
                         <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                          New Words
+                          {page.post.vocabBtn}
                         </Dialog.Title>
                       </div>
                       <div className="relative prose mt-6 flex-1 px-4 sm:px-6">

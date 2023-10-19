@@ -1,8 +1,9 @@
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
-import Hero from "./components/Hero";
 import ListItem from "./components/ListItem";
-import { getSortedPostsData } from "@/lib/posts"
+import { getSortedPostsData } from "@/lib/posts";
+import Image from "next/image";
+import img from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
 
 export default async function Home({
   params: { lang },
@@ -11,21 +12,40 @@ export default async function Home({
 }) {
   const { page } = await getDictionary(lang);
 
-  const posts = getSortedPostsData()
-
+  const posts = getSortedPostsData();
 
   return (
     <>
-      <Hero />
+      <div
+        id="hero"
+        className="relative flex justify-center items-center text-white w-full h-4 px-6 py-14 mb-1 -z-10"
+      >
+        <h1 className=" text-5xl font-bold md:text-6xl md:my-28 drop-shadow-lg">
+          {page.home.title}
+        </h1>
+        <div className="absolute -z-10 w-full bg-black h-full">
+          <Image
+            alt="Mountains"
+            src={img}
+            quality={100}
+            fill
+            style={{
+              objectFit: "cover",
+            }}
+          />
+        </div>
+      </div>
+
       <div>
         <div className="flex justify-center py-10">
-        <h2 className=" text-md font-light text-xs md:text-sm text-slate-500 text-center">{page.home.description}</h2>
-
+          <h2 className=" text-md font-light text-xs md:text-sm text-slate-500 text-center">
+            {page.home.description}
+          </h2>
         </div>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-3 xl:px-40">
-        {posts.map(post => (
-                <ListItem key={post.id} post={post} />
-            ))}
+          {posts.map((post) => (
+            <ListItem key={post.id} post={post} />
+          ))}
         </section>
       </div>
     </>

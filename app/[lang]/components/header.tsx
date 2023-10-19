@@ -1,8 +1,6 @@
 import Link from 'next/link'
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
-import LocaleSwitcher from './locale-switcher'
-import { HiOutlineHome} from  "react-icons/hi";
 import NavMenu from './nav-menu';
 
 export default async function Header({ lang }: { lang: Locale }) {

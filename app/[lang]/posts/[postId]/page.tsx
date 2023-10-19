@@ -1,7 +1,8 @@
 import getFormattedDate from "@/lib/getFormattedDate";
 import { getSortedPostsData, getPostData } from "@/lib/posts";
+import { Locale } from "@/i18n.config";
+import { getDictionary } from "@/lib/dictionary";
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
@@ -32,9 +33,12 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
   };
 }
 
-export default async function Post({ params }: { params: { postId: string } }) {
+export default async function Post({ params }: { params: { postId: string, lang: Locale } }) {
   const posts = getSortedPostsData();
-  const { postId } = params;
+  const { postId, lang } = params;
+
+  const { page } = await getDictionary(lang);
+
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
@@ -46,7 +50,7 @@ export default async function Post({ params }: { params: { postId: string } }) {
 
   return (
     <main className="prose prose-lg prose-slate mx-auto mt-10 md:mt-20 px-6">
-      <VocabSideMenu vocabList={sections[1]} />
+      <VocabSideMenu vocabList={sections[1]} lang={lang} page={page} />
       <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
       <p className="mt-0">{pubDate}</p>
       <article>
