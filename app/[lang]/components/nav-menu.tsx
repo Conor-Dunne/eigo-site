@@ -70,7 +70,7 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
       </nav>
       {nav && (
         <div
-          className=" w-full h-screen bg-gray-300 opacity-50 cursor-pointer"
+          className=" absolute top-0 w-full h-screen bg-gray-300 opacity-50 cursor-pointer"
           onClick={() => setNav(false)}
         ></div>
       )}
