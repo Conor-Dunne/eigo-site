@@ -23,7 +23,7 @@ interface VocabSideMenuProps {
 
 
 export default function VocabSideMenu({ vocabList, lang, page }: VocabSideMenuProps) {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   const openSlideOver = () => {
     setOpen(true);
