@@ -53,6 +53,7 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
           </li>
         </ul>
         <button
+        aria-label="home"
           onClick={() => {
             nav ? setNav(!nav) : null;
           }}
@@ -63,7 +64,9 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
         </button>
 
         <div className=" absolute top-0 right-0 mt-5 mr-2 font-bold text-xl">
-          <button onClick={() => setNav(!nav)}>
+          <button 
+          aria-label="toggle navigation menu"
+          onClick={() => setNav(!nav)}>
             {!nav ? <FaBars /> : <FaTimes />}
           </button>
         </div>

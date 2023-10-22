@@ -14,6 +14,10 @@ tags:
 
 TikTok, the popular video-sharing platform, is experimenting with a new way to enhance your TikTok experience. They are testing a monthly subscription service that removes ads from your TikTok feed.
 
+### Warm-up Question:
+
+**What are your thoughts on the idea of an ad-free subscription service for TikTok? How might it change the platform's user experience?**
+
 ## What's Happening?
 
 TikTok is currently trying out this new subscription service in a place where people speak English. Unfortunately, they haven't told us exactly where this testing is happening. What we do know is that to enjoy this ad-free experience, you would need to pay $4.99 every month (that's about £4.13).
@@ -52,7 +56,35 @@ Maddie Hill, a 22-year-old influencer, shared her thoughts. She has a big follow
 
 So, whether you're used to ads or looking forward to an ad-free TikTok, it's clear that changes in the world of online advertising are on the horizon.
 
-Stay tuned for more updates on this exciting development in the world of social media!
+---
+
+## Study Questions
+
+**True/False Questions:**
+1. TikTok is testing an ad-free subscription service. (True/False)
+2. The article mentions the exact location of the testing phase. (True/False)
+3. You can enjoy the ad-free experience on TikTok for free. (True/False)
+
+**Sentence Building:**
+- Rearrange the words to form sentences or paragraphs from the article.
+1. _Testing in new subscription removing ads TikTok is a service._ (Reconstruct the sentence.)
+
+   &nbsp;
+
+2. _this testing is in just is a phase It out still._ (Reconstruct the sentence.)
+
+   &nbsp;
+
+3. _experience ad-free to willing you subscribe if you make disappear those this new aims service ads._ (Reconstruct the sentence.)
+
+   &nbsp;
+
+
+**Discussion Questions:**
+1. Do you think offering an ad-free subscription is a good idea for TikTok? Why or why not?
+2. How do you feel about ads on social media platforms like TikTok? Are they annoying or acceptable to you?
+3. What do you think about other social media companies like Meta considering ad-free options for users in response to new regulations?
+
 
 
 #### Key Words and Translations 
@@ -75,4 +107,22 @@ Stay tuned for more updates on this exciting development in the world of social 
 | European Union    | 欧州連合                     |
 | personalized ads  | 個人向け広告                  |
 | regulations       | 規制                         |
+| enhance           | 高める                        |
+| vocabulary         | 語彙                         |
+| annoying          | 迷惑な                        |
+| astonishing       | 驚異的な                      |
+| response           | 対応                          |
+| valuable           | 価値のある                    |
+| reaction           | 反応                          |
+| influencer         | インフルエンサー               |
+| follower           | フォロワー                    |
+| exciting           | エキサイティング                |
+| development        | 開発                          |
+| enhance            | 高める                        |
+| scale              | スケール                      |
+| short              | 短い                          |
+| usually            | 通常は                        |
+| clear              | 明確                          |
+| horizon            | 地平線                        |
+| user habit         | ユーザーの習慣                  |
 
