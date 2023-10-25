@@ -54,7 +54,7 @@ export default async function Post({ params }: { params: { postId: string, lang:
       <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
       <p className="mt-0">{pubDate}</p>
       <article>
-        <Image src={img} width={800} height={800} alt="Picture of the author" />
+        <Image src={img} width={600} height={600} alt="Picture of the author" />
         <ReactMarkdown remarkPlugins={[remarkGfm]}>{sections[0]}</ReactMarkdown>
         {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
       </article>
