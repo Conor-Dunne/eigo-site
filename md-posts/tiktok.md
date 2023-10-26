@@ -1,6 +1,6 @@
 ---
 title: TikTok Tests Ad-Free Subscription 📰
-date: 2023-10-05
+date: '2023-10-05'
 excerpt: TikTok is trying something new - offering an ad-free service. Learn more about this testing phase and how it might change the TikTok experience.
 img: "https://images.unsplash.com/photo-1596346599094-4dfa5c61fd0d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
 categories:
