@@ -10,7 +10,7 @@ tags:
 -  Virus
 ---
 
-**Elephants, the largest and strongest primates, are facing a new threat. A new virus that can make them very sick has been found in the bodies of four African elephants that died in Rwanda.**
+**Elephants are facing a new threat. A new virus that can make them very sick has been found in the bodies of four African elephants that died in Rwanda.**
 
 Scientists think this virus was the reason for a pneumonia, or lung infection, that killed the animals in 2022.
 
