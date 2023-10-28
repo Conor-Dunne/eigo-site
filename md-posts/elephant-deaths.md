@@ -64,7 +64,6 @@ Prof Goldberg added that more research was needed to know "how this virus affect
 📜
 | English           | (日本語訳) |
 |-------------------|-----------------------------|
-| gorilla           | ゴリラ                       |
 | virus             | ウイルス                     |
 | pneumonia         | 肺炎                        |
 | Rwanda            | ルワンダ                     |
