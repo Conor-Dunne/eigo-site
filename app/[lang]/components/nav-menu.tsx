@@ -23,8 +23,8 @@ export default function NavMenu({ lang, navigation }: NavMenuProps) {
 
   return (
     <>
-      <nav className=" max-w-8xl hidden  bg-slate-900  text-white font-semibold  md:flex flex-col md:flex-row gap-3 justify-center sm:justify-around items-center px-5 py-5">
-        <ul className="flex justify-between items-center gap-12 text-xl">
+      <nav className=" max-w-8xl hidden  bg-slate-900  text-white font-light  md:flex flex-col md:flex-row gap-3 justify-center sm:justify-around items-center px-5 py-5">
+        <ul className="flex justify-between items-center gap-12">
           <li>
             <Link href={`/${lang}`}>
               <HiOutlineHome className=" text-2xl" />

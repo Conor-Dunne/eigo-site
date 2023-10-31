@@ -26,8 +26,8 @@ export default function ListItem({ post }: Props) {
                 />
             </div>       
             <div className="flex flex-col gap-2">
-            <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p>
             <h2>{title}</h2> 
+            <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p>
             </div>
                 </div>    
             </Link>
