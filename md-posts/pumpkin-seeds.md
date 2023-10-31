@@ -55,9 +55,8 @@ In conclusion, the history of using pumpkins in cooking is a fascinating journey
 | Thanksgiving      | 感謝祭 (Kanshasai)           |
 | Cuisine           | 料理 (Ryōri)                |
 | Global            | グローバル (Gurōbaru)         |
-| Kabocha           | カボチャ (Kabocha)           |
 | Nutritious        | 栄養価の高い (Eiyōka no takai) |
-| Trendy            | トレンディ (Torendi)         |
+| Trendy            | 流行っています       |
 | Delicious         | おいしい (Oishī)             |
 | Gourd             | ひょうたん (Hyōtan)          |
 | Flavor            | 風味 (Fūmi)                 |
@@ -66,10 +65,7 @@ In conclusion, the history of using pumpkins in cooking is a fascinating journey
 | Ingredient        | 材料 (Zairyō)                |
 | Versatility       | 多用途性 (Tayōsei)           |
 | Resurgence       | 復活 (Fukkatsu)              |
-| Lattes            | ラテ (Rate)                 |
-| Soups             | スープ (Sūpu)               |
-| Curries           | カレー (Karē)               |
-| Earthy            | 大地の (Daichi no)           |
+| Earthy flavor     | 素朴な風味          |
 | Historical        | 歴史的 (Rekishiteki)         |
 | Significance      | 重要性 (Jūyō-sei)            |
 
