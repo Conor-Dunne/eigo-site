@@ -35,6 +35,9 @@ export default async function Home({
           />
         </div>
       </div>
+      <audio controls>
+      <source src="/ElevenLabs.mp3" type="audio/mpeg"/>
+        </audio> 
 
       <div>
         <div className="flex justify-center py-10">
@@ -51,3 +54,4 @@ export default async function Home({
     </>
   );
 }
+

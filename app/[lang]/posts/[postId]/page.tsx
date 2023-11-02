@@ -49,7 +49,7 @@ export default async function Post({ params }: { params: { postId: string, lang:
   const pubDate = getFormattedDate(date);
 
   return (
-    <main className="prose prose-lg prose-slate mx-auto mt-10 md:mt-20 px-6 pb-28">
+    <main className="prose prose-slate text-md mx-auto mt-10 md:mt-20 px-6 pb-28">
       <VocabSideMenu vocabList={sections[1]} lang={lang} page={page} />
       <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
       <p className="mt-0">{pubDate}</p>
