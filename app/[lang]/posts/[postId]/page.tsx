@@ -42,11 +42,13 @@ export default async function Post({ params }: { params: { postId: string, lang:
 
   if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, date, contentHtml, img } = await getPostData(postId);
+  const { title, date, audio, contentHtml, img } = await getPostData(postId);
 
   const sections = contentHtml.split("#### Key Words and Translations");
 
   const pubDate = getFormattedDate(date);
+
+  console.log( audio)
 
   return (
     <main className="prose prose-slate text-md mx-auto mt-10 md:mt-20 px-6 pb-28">
@@ -61,3 +63,4 @@ export default async function Post({ params }: { params: { postId: string, lang:
     </main>
   );
 }
+
