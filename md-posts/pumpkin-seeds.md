@@ -58,7 +58,7 @@ In conclusion, the history of using pumpkins in cooking is a fascinating journey
 | Nutritious        | 栄養価の高い (Eiyōka no takai) |
 | Trendy            | 流行っています       |
 | Delicious         | おいしい (Oishī)             |
-| Gourd             | ひょうたん (Hyōtan)          |
+| Gourd             | 瓜   (うり)      |
 | Flavor            | 風味 (Fūmi)                 |
 | Palatable         | 食べやすい (Tabeyasui)       |
 | Seasonal          | 季節の (Kisetsu no)           |
