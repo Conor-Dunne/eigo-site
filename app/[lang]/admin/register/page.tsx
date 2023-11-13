@@ -12,7 +12,7 @@ export default function Register({
 }) {
 
 
-  redirect("/") //disable for now
+  // redirect("/") //disable for now
 
 
   const [formData, setFormData] = useState({
