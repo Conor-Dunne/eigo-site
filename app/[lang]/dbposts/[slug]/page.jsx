@@ -3,7 +3,13 @@ import VocabSideMenu from "../../components/vocab-menu";
 import ContentWithPopups from "../components/ContentWithPopups"
 
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/${ "ja" || "en"}/api/posts/${slug}`, {
+
+  const baseUrl = process.env.NODE_ENV === 'production'
+    ? 'https://eigo-site.vercel.app' 
+    : 'http://localhost:3000';
+
+
+  const res = await fetch(`${baseUrl}/${ "ja" || "en"}/api/posts/${slug}`, {
     cache: "no-store",
   });
 
