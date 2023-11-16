@@ -12,8 +12,9 @@ export default function WordModal({ word, japanese }) {
       <span> </span>
       {display && (
         <div className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-400 bg-opacity-50" onClick={() => setDisplay(false)}>
-          <div className="bg-white p-4 rounded-md opacity-100">
-            <h1>{japanese}</h1>
+          <div className=" flex flex-col justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100">
+            <h2 className="m-0">{word}</h2>
+            <h2 className="m-0">{japanese}</h2>
           </div>
         </div>
       )}
