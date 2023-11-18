@@ -19,6 +19,16 @@ function getLocale(request: NextRequest): string | undefined {
 }
 
 export function middleware(request: NextRequest) {
+
+  // if (!request.headers.get("accept")?.includes("image")) {
+  // Skip next internal and image requests
+  if (
+    request.nextUrl.pathname.startsWith("/_next") ||
+    request.headers.get("accept")?.includes("image")
+  )
+    return;
+
+
   const pathname = request.nextUrl.pathname
   const pathnameIsMissingLocale = i18n.locales.every(
     locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
