@@ -26,9 +26,9 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
 
   return (
-    <main className="prose prose-slate text-md mx-auto mt-10 md:mt-20 px-6 pb-28">
+    <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28">
       {/* <VocabSideMenu vocabList={data.kay} lang={lang} page={page} /> */}
-      <h1 className="text-4xl md:text-6xl font-bold mt-4 mb-2 text-gray-800">
+      <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-2 text-gray-800">
         {data.title}
       </h1>
       <p className="text-sm text-gray-600">{data.createdAt}</p>
