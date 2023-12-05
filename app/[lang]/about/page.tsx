@@ -13,6 +13,7 @@ export default async function About({
       <div className='container prose prose-xl'>
         <h1 className='text-3xl font-bold'>{page.about.title}</h1>
         <p className='text-gray-500'>{page.about.description}</p>
+        <p>Hi!</p>
       </div>
     </section>
   )
