@@ -12,6 +12,8 @@ export default async function Home({
 }) {
   const { page } = await getDictionary(lang);
 
+  console.log(lang);
+
   const posts = getSortedPostsData();
 
   return (
@@ -26,7 +28,7 @@ export default async function Home({
         <div className="absolute -z-10 w-full bg-black h-full">
           <Image
             alt="Mountains"
-            src="/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg"
+            src= {`/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg`}
             quality={100}
             fill
             style={{

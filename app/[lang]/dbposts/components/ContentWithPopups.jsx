@@ -12,13 +12,6 @@ export default async function ContentWithPopups({ content, words }) {
 
   const splitWords = content.split(" ");
 
-  
-
-  // console.log(data.words[23].sense); //each sense is an array of objects that include a gloss
-  // console.log(data.words[23].sense[0].gloss); //each gloss is also an array of objects that conation text parameters with english values
-
-  // let arr = [];
-
   function wordMatch(word, sense) {
     // List of common words to ignore
     const commonWords = ['in', 'a', 'by', 'the', 'of', 'this', 'that', 'is', 'are', 'from', 'with', 'new', 'to', 'for', 'have', 'and', 'as', 'at', 'time', 'will', 'now', 'about' /* add more common words as needed */];
@@ -46,28 +39,6 @@ export default async function ContentWithPopups({ content, words }) {
     return false;
   }
   
-  
-  
-  
-  // data.words.forEach((word) => {
-  //   if (wordMatch("dispute", word.sense && word.sense[0] && word.sense[0].gloss)) {
-  //     arr.push(word.kanji);
-  //     arr.push(word.kana);
-  //   }
-  // });
-
-  // arr.sort((a, b) => {
-  //   const aCommon = a.some((item) => item.common);
-  //   const bCommon = b.some((item) => item.common);
-  
-  //   if (aCommon && !bCommon) {
-  //     return -1; // Place arrays with common:true words first
-  //   } else if (!aCommon && bCommon) {
-  //     return 1; // Place arrays with common:false words later
-  //   } else {
-  //     return 0; // Maintain the order for arrays with no common:true words
-  //   }
-  // });
   
   const renderContent = () => {
     const result = [];
@@ -104,9 +75,3 @@ export default async function ContentWithPopups({ content, words }) {
 
   return <article className="leading-loose">{renderContent()}</article>;
 }
-
-// ? (
-//   <WordModal word={word} japanese={translation[0].text} />
-// ) : (
-//   word + " "
-// )
