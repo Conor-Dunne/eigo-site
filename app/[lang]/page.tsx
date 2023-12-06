@@ -3,6 +3,7 @@ import { getDictionary } from "@/lib/dictionary";
 import ListItem from "./components/ListItem";
 import { getSortedPostsData } from "@/lib/posts";
 import Image from "next/image";
+import { promises as fs } from "fs";
 
 
 export default async function Home({
