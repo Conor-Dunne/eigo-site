@@ -3,12 +3,7 @@ import WordModal from "./WordModal";
 import { promises as fs } from "fs";
 import { compareSync } from "bcrypt";
 
-export default async function ContentWithPopups({ content, words }) {
-  const file = await fs.readFile(
-    process.cwd() + "/data/jmdict-eng-common-3.5.0.json",
-    "utf8"
-  );
-  const data = JSON.parse(file);
+export default async function ContentWithPopups({ content, words, data }) {
 
   const splitWords = content.split(" ");
 

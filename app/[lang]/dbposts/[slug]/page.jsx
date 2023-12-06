@@ -46,8 +46,7 @@ const SinglePage = async ({ params }) => {
       <p className="text-sm text-gray-600">{data.createdAt}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" />
-        {/* <ContentWithPopups content={data.desc} words={data.keyWords} /> */}
-        <h1>{jmdictData.words[0].kanji[0].text}</h1>
+        <ContentWithPopups content={data.desc} words={data.keyWords} data={jmdictData} />
       </article>
     </main>
   );
