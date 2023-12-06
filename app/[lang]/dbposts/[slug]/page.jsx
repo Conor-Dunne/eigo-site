@@ -3,13 +3,7 @@ import VocabSideMenu from "../../components/vocab-menu";
 import ContentWithPopups from "../components/ContentWithPopups"
 import { promises as fs } from "fs";
 
-const file = await fs.readFile(
-  process.cwd() + "/data/jmdict-eng-common-3.5.0.json",
-  "utf8"
-);
-const jmdict = JSON.parse(file);
 
-console.log(jmdict.words[0].kanji[0].text)
 
 const getData = async (slug) => {
 
@@ -33,6 +27,14 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
+
+  const file = await fs.readFile(
+    process.cwd() + "/data/jmdict-eng-common-3.5.0.json",
+    "utf8"
+  );
+  const jmdict = JSON.parse(file);
+  
+  console.log(jmdict.words[0].kanji[0].text)
 
   return (
     <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28">
