@@ -4,12 +4,13 @@ import jmdictData from "@/data/jmdict-eng-common-3.5.0.json"
 
 
 export default async function ContentWithPopups({ content }) {
+  let commonWords = ['in', 'a', 'by', 'the', 'of', 'this', 'that', 'is', 'are', 'from', 'with', 'new', 'to', 'for', 'have', 'and', 'as', 'at', 'time', 'will', 'now', 'about' /* add more common words as needed */];
+
 
   const splitWords = content.split(" ");
 
   function wordMatch(word, sense) {
     // List of common words to ignore
-    const commonWords = ['in', 'a', 'by', 'the', 'of', 'this', 'that', 'is', 'are', 'from', 'with', 'new', 'to', 'for', 'have', 'and', 'as', 'at', 'time', 'will', 'now', 'about' /* add more common words as needed */];
   
     // Check if the word is a common word
     if (commonWords.includes(word.toLowerCase())) {
@@ -53,6 +54,7 @@ export default async function ContentWithPopups({ content }) {
       });
 
       if (foundTranslation.length > 0) {
+        commonWords.push(word);
         result.push(
           <WordModal
             key={index}
