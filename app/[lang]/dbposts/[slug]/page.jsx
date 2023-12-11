@@ -1,7 +1,5 @@
 import Image from "next/image";
-import VocabSideMenu from "../../components/vocab-menu";
 import ContentWithPopups from "../components/ContentWithPopups"
-import { promises as fs } from "fs";
 import jmdictData from "@/data/jmdict-eng-common-3.5.0.json"
 import { Suspense } from 'react';
 import Loading from "../components/ContentWithPopups"
@@ -30,14 +28,7 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
-
-  // // const file = await fs.readFile(
-  // //   process.cwd() + "/data/jmdict-eng-common-3.5.0.json",
-  // //   "utf8"
-  // // );
-  // const jmdict = JSON.parse(jmdictData);
   
-  console.log(jmdictData.words[0].kanji[0].text)
 
   return (
     <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28">
@@ -48,9 +39,8 @@ const SinglePage = async ({ params }) => {
       <p className="text-sm text-gray-600">{data.createdAt}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" />
-        <Suspense fallback={<Loading />}>
-        <ContentWithPopups content={data.desc} words={data.keyWords} data={jmdictData} />
-        </Suspense>
+        {/* <ContentWithPopups content={data.desc} words={data.keyWords} data={jmdictData} /> */}
+        <p>{data.desc}</p>
       </article>
     </main>
   );

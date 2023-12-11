@@ -1,9 +1,7 @@
 import React from "react";
 import WordModal from "./WordModal";
-import { promises as fs } from "fs";
-import { compareSync } from "bcrypt";
 
-export default async function ContentWithPopups({ content, words, data }) {
+export default async function ContentWithPopups({ content, data }) {
 
   const splitWords = content.split(" ");
 
