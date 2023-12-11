@@ -1,7 +1,9 @@
 import React from "react";
 import WordModal from "./WordModal";
+import jmdictData from "@/data/jmdict-eng-common-3.5.0.json"
 
-export default async function ContentWithPopups({ content, data }) {
+
+export default async function ContentWithPopups({ content }) {
 
   const splitWords = content.split(" ");
 
@@ -41,7 +43,7 @@ export default async function ContentWithPopups({ content, data }) {
       let wordsArr = []
 
 
-      data.words.forEach((obj) => {
+      jmdictData.words.forEach((obj) => {
         if (wordMatch(word.toLowerCase(), obj.sense)) {
           wordsArr.push(obj)
           foundTranslation = wordsArr
