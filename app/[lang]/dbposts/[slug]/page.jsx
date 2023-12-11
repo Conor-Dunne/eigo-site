@@ -3,6 +3,8 @@ import VocabSideMenu from "../../components/vocab-menu";
 import ContentWithPopups from "../components/ContentWithPopups"
 import { promises as fs } from "fs";
 import jmdictData from "@/data/jmdict-eng-common-3.5.0.json"
+import { Suspense } from 'react';
+import Loading from "../components/ContentWithPopups"
 
 
 
@@ -46,7 +48,9 @@ const SinglePage = async ({ params }) => {
       <p className="text-sm text-gray-600">{data.createdAt}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" />
+        <Suspense fallback={<Loading />}>
         <ContentWithPopups content={data.desc} words={data.keyWords} data={jmdictData} />
+        </Suspense>
       </article>
     </main>
   );
