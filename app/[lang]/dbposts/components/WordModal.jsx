@@ -4,6 +4,8 @@ import React, { useState } from "react";
 export default function WordModal({ word, japanese }) {
   const [display, setDisplay] = useState(false);
 
+  console.log("word modal", japanese);
+
   return (
     <>
       <span className=" border-b-2 cursor-pointer" onClick={() => setDisplay(true)}>
@@ -15,9 +17,7 @@ export default function WordModal({ word, japanese }) {
           <div className="fixed top-0 flex flex-col w-3/5 overflow-scroll justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100">
             <div><h2 className="m-0">{word}</h2></div>
         <div>
-        {japanese.map(obj => (
-        obj.kanji.length > 0 ? <div className="flex gap-4" key={obj.id}><p className=" font-semibold">{obj.kanji[0].text}</p><p>{obj.kana[0].text}</p></div> : <p key={obj.id}>{obj.kana[0].text}</p>
-      ))}
+        {japanese}
         </div>
           </div>
         </div>

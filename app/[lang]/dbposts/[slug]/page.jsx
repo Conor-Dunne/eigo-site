@@ -9,7 +9,7 @@ const SinglePage = async ({ params }) => {
   const { slug } = params;
 
   const data = await getData(slug);
-  
+
 
   return (
     <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28">
@@ -19,7 +19,7 @@ const SinglePage = async ({ params }) => {
       <p className="text-sm text-gray-600">{data.createdAt}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" />
-        <ContentWithPopups content={data.desc} words={data.keyWords} />
+        <ContentWithPopups content={data.desc} keyWords={data.keyWords} />
       </article>
     </main>
   );
