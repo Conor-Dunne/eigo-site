@@ -23,7 +23,6 @@ export default async function ContentWithPopups({ content, keyWords }) {
   
         if (keyWords.some(keyword => keyword.English.toLowerCase() === word.toLowerCase())) {
           vocabObj = keyWords.find(keyword => keyword.English.toLowerCase() === word.toLowerCase());
-            console.log("obj --->>", vocabObj);
             return true
         }
       
