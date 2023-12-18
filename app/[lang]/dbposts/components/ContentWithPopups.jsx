@@ -20,9 +20,11 @@ export default async function ContentWithPopups({ content, keyWords }) {
 
 
       function wordMatch(word, keyWords) {
+
+        const cleanedWord = word.replace(/[.,]/g, '');
   
-        if (keyWords.some(keyword => keyword.English.toLowerCase() === word.toLowerCase())) {
-          vocabObj = keyWords.find(keyword => keyword.English.toLowerCase() === word.toLowerCase());
+        if (keyWords.some(keyword => keyword.English.toLowerCase() === cleanedWord.toLowerCase())) {
+          vocabObj = keyWords.find(keyword => keyword.English.toLowerCase() === cleanedWord.toLowerCase());
             return true
         }
       

@@ -4,6 +4,7 @@ import ListItem from "./components/ListItem";
 import { getSortedPostsData } from "@/lib/posts";
 import Image from "next/image";
 import { promises as fs } from "fs";
+import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg"
 
 
 export default async function Home({
@@ -33,7 +34,7 @@ export default async function Home({
         <div className="absolute -z-10 w-full bg-black h-full">
           <Image
             alt="Mountains"
-            src= {`/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg`}
+            src= {heroImg}
             quality={100}
             fill
             style={{
