@@ -1,6 +1,5 @@
 import React from "react";
 import WordModal from "./WordModal";
-import jmdictData from "@/data/jmdict-eng-common-3.5.0.json"
 
 
 export default async function ContentWithPopups({ content, keyWords }) {

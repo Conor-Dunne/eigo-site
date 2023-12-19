@@ -1,25 +1,25 @@
 const vocabularyEntries = [
-    { English: 'discover', Japanese: '発見する', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'virus', Japanese: 'ウイルス', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'African elephants', Japanese: 'アフリカゾウ', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'severe pneumonia', Japanese: '重篤な肺炎', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'deaths', Japanese: '死亡', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'impact', Japanese: '影響', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'endangered animals', Japanese: '絶滅危惧動物', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'extinction', Japanese: '絶滅', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'wild', Japanese: '野生の', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'researchers', Japanese: '研究者', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'wildlife veterinarian', Japanese: '野生動物獣医', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'GPS trackers', Japanese: 'GPSトラッカー', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'carcasses', Japanese: '死骸', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'pneumonia', Japanese: '肺炎', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'RSV (respiratory syncytial virus)', Japanese: 'RSV（呼吸器合胞体ウイルス）', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'social nature', Japanese: '社会性', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'spread', Japanese: '広がり', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'conservationists', Japanese: '保護活動家', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'research', Japanese: '研究', postSlug: 'new_virus_found_in_african_elephants' },
-    { English: 'interventions', Japanese: '介入', postSlug: 'new_virus_found_in_african_elephants' },
-  ];
+  { English: "experiment", Japanese: "実験", postSlug: "tiktok-ad-free-subscription" },
+  { English: "enhance", Japanese: "向上させる", postSlug: "tiktok-ad-free-subscription" },
+  { English: "subscription", Japanese: "定期購読", postSlug: "tiktok-ad-free-subscription" },
+  { English: "ad", Japanese: "広告", postSlug: "tiktok-ad-free-subscription" },
+  { English: "testing", Japanese: "テスト", postSlug: "tiktok-ad-free-subscription" },
+  { English: "service", Japanese: "サービス", postSlug: "tiktok-ad-free-subscription" },
+  { English: "users", Japanese: "ユーザー", postSlug: "tiktok-ad-free-subscription" },
+  { English: "platform", Japanese: "プラットフォーム", postSlug: "tiktok-ad-free-subscription" },
+  { English: "experience", Japanese: "経験", postSlug: "tiktok-ad-free-subscription" },
+  { English: "online", Japanese: "オンライン", postSlug: "tiktok-ad-free-subscription" },
+  { English: "advertising", Japanese: "広告", postSlug: "tiktok-ad-free-subscription" },
+  { English: "changes", Japanese: "変更", postSlug: "tiktok-ad-free-subscription" },
+  { English: "world", Japanese: "世界", postSlug: "tiktok-ad-free-subscription" },
+  { English: "digital", Japanese: "デジタル", postSlug: "tiktok-ad-free-subscription" },
+  { English: "transformations", Japanese: "変容", postSlug: "tiktok-ad-free-subscription" },
+  { English: "users", Japanese: "ユーザー", postSlug: "tiktok-ad-free-subscription" },
+  { English: "experience", Japanese: "体験", postSlug: "tiktok-ad-free-subscription" },
+  { English: "languages", Japanese: "言語", postSlug: "tiktok-ad-free-subscription" },
+  { English: "communication", Japanese: "コミュニケーション", postSlug: "tiktok-ad-free-subscription" }
+];
+
 
   
 export default vocabularyEntries;
