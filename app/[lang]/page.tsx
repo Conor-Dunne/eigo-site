@@ -14,11 +14,6 @@ export default async function Home({
 }) {
   const { page } = await getDictionary(lang);
 
-  const file = await fs.readFile(
-    process.cwd() + "/data/jmdict-eng-common-3.5.0.json",
-    "utf8",
-  );
-  const data = JSON.parse(file);
 
   const posts = getSortedPostsData();
 
@@ -55,7 +50,6 @@ export default async function Home({
             <ListItem key={post.id} post={post} />
           ))}
         </section>
-        <h2>{data.words[0].kanji[0].text}</h2>
       </div>
     </>
   );
