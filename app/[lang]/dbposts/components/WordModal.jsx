@@ -6,7 +6,8 @@ import { GB, JP } from "country-flag-icons/react/3x2";
 export default function WordModal({ word, japanese }) {
   const [display, setDisplay] = useState(false);
   const [data, setData] = useState(null);
-  const [isLoading, setLoading] = useState(true);
+  const [definitionLoading, setdefLoading] = useState(true);
+  const [exampleLoading, setExampleLoading] = useState(true);
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
 
@@ -20,6 +21,7 @@ export default function WordModal({ word, japanese }) {
         );
         const data = await response.json();
         setDictionaryData(data);
+        setDefLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -36,7 +38,7 @@ export default function WordModal({ word, japanese }) {
         );
         const data = await response.json();
         setExampleData(data);
-        console.log(exampleData);
+        setExampleLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -46,6 +48,7 @@ export default function WordModal({ word, japanese }) {
   }, []);
 
   // const audioUrl = dictionaryData[0].phonetics[0]?.audio;
+
 
   return (
     <>
@@ -63,7 +66,7 @@ export default function WordModal({ word, japanese }) {
         >
           <div
             id="modal"
-            className="relative flex flex-col shadow-lg border-2 max-w-[90%] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
+            className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
           >
             <div
               onClick={() => setDisplay(false)}
@@ -95,7 +98,7 @@ export default function WordModal({ word, japanese }) {
             ) : (
               <p>Loading...</p>
             )}
-            {exampleData.data && exampleData.data.length > 0 && (
+            {!exampleLoading && exampleData.data && exampleData.data.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col items-right">
                   <JP className=" w-[30px] h-4" />
@@ -111,6 +114,20 @@ export default function WordModal({ word, japanese }) {
                     </div>
                   )}
               </div>
+            ) : (
+              <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
+              <div className="flex flex-col items-right">
+                <JP className=" w-[30px] h-4" />
+                <p className="my-2">読み込み中</p>
+              </div>
+           
+                  <div className="flex flex-col items-right">
+                    <GB className=" w-[30px] h-4" />
+                    <p className="my-2">
+                      Loading...
+                    </p>
+                  </div>
+            </div>
             )}
           </div>
         </div>
