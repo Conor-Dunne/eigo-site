@@ -5,6 +5,8 @@ import { getSortedPostsData } from "@/lib/posts";
 import Image from "next/image";
 import { promises as fs } from "fs";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg"
+const { PrismaClient } = require('@prisma/client');
+const prisma = new PrismaClient();
 
 
 export default async function Home({
@@ -15,7 +17,9 @@ export default async function Home({
   const { page } = await getDictionary(lang);
 
 
-  const posts = getSortedPostsData();
+  // const posts = getSortedPostsData();
+
+  const allPosts = await prisma.Post.findMany();
 
   return (
     <>
@@ -46,7 +50,7 @@ export default async function Home({
           </h2>
         </div>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-3 xl:px-40">
-          {posts.map((post) => (
+          { allPosts.map((post: any) => (
             <ListItem key={post.id} post={post} />
           ))}
         </section>

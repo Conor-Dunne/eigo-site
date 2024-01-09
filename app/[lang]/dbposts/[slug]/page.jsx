@@ -8,6 +8,8 @@ import getData from "../helpers/getData"
 const SinglePage = async ({ params }) => {
   const { slug } = params;
 
+  console.log(params);
+
   const data = await getData(slug);
 
 
