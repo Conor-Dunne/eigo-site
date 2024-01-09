@@ -1,7 +1,7 @@
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import ListItem from "./components/ListItem";
-import { getSortedPostsData } from "@/lib/posts";
+// import { getSortedPostsData } from "@/lib/posts";
 import Image from "next/image";
 import { promises as fs } from "fs";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg"
