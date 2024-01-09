@@ -34,33 +34,33 @@ export function generateMetadata({ params }: { params: { postId: string } }) {
 }
 
 export default async function Post({ params }: { params: { postId: string, lang: Locale } }) {
-  const posts = getSortedPostsData();
-  const { postId, lang } = params;
+  // const posts = getSortedPostsData();
+  // const { postId, lang } = params;
 
-  const { page } = await getDictionary(lang);
+  // const { page } = await getDictionary(lang);
 
 
-  if (!posts.find((post) => post.id === postId)) notFound();
+  // if (!posts.find((post) => post.id === postId)) notFound();
 
-  const { title, date, audio, contentHtml, img } = await getPostData(postId);
+  // const { title, date, audio, contentHtml, img } = await getPostData(postId);
 
-  const sections = contentHtml.split("#### Key Words and Translations");
+  // const sections = contentHtml.split("#### Key Words and Translations");
 
-  const pubDate = getFormattedDate(date);
+  // const pubDate = getFormattedDate(date);
 
-  console.log( audio)
 
   return (
-    <main className="prose prose-slate text-md mx-auto mt-10 md:mt-20 px-6 pb-28">
-      <VocabSideMenu vocabList={sections[1]} lang={lang} page={page} />
-      <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
-      <p className="mt-0">{pubDate}</p>
-      <article>
-        <Image src={img} width={600} height={600} alt="Picture of the author" />
-        <ReactMarkdown remarkPlugins={[remarkGfm]}>{sections[0]}</ReactMarkdown>
-        {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
-      </article>
-    </main>
+    // <main className="prose prose-slate text-md mx-auto mt-10 md:mt-20 px-6 pb-28">
+    //   <VocabSideMenu vocabList={sections[1]} lang={lang} page={page} />
+    //   <h1 className=" text-2xl md:text-4xl mt-4 mb-0">{title}</h1>
+    //   <p className="mt-0">{pubDate}</p>
+    //   <article>
+    //     <Image src={img} width={600} height={600} alt="Picture of the author" />
+    //     <ReactMarkdown remarkPlugins={[remarkGfm]}>{sections[0]}</ReactMarkdown>
+    //     {/* <section dangerouslySetInnerHTML={{ __html: contentHtml }} /> */}
+    //   </article>
+    // </main>
+    <h1>Hi!</h1>
   );
 }
 
