@@ -53,7 +53,7 @@ export default function WordModal({ word, japanese }) {
   return (
     <>
       <span
-        className=" border-b-2 border-orange-400 cursor-pointer"
+        className=" text-orange-700 font-medium cursor-pointer"
         onClick={() => setDisplay(true)}
       >
         {word}
