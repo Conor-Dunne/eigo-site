@@ -68,14 +68,18 @@ export default function WordModal({ word, japanese }) {
             id="modal"
             className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
           >
+            <div className="flex flex-col width-full">
+            <div className="flex justify-end">
             <div
               onClick={() => setDisplay(false)}
-              className=" absolute top-4 right-4 cursor-pointer text-lg font-extrabold text-cyan-950 border-2 border-cyan-950 px-2 rounded-md"
+              className="cursor-pointer text-lg font-extrabold text-cyan-950 border-2 border-cyan-950 px-2 rounded-md width-content"
             >
               X
             </div>
+            </div>
             <div>
               <h2 className="m-0">{word}</h2>
+            </div>
             </div>
             <div>{japanese}</div>
             {dictionaryData ? (

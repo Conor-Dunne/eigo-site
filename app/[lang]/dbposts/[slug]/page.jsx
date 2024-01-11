@@ -3,22 +3,23 @@ import ContentWithPopups from "../components/ContentWithPopups"
 import { Suspense } from 'react';
 import Loading from "../components/ContentWithPopups"
 import getData from "../helpers/getData"
+import getFormattedDate from "@/lib/getFormattedDate"
 
 
 const SinglePage = async ({ params }) => {
   const { slug } = params;
 
-  console.log(params);
 
   const data = await getData(slug);
+  const formattedDate = getFormattedDate(data.createdAt)
 
 
   return (
-    <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28">
+    <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28 min-w-[260px]">
       <h1 className="text-3xl md:text-4xl font-bold mt-4 mb-2 text-gray-800">
         {data.title}
       </h1>
-      <p className="text-sm text-gray-600">{data.createdAt}</p>
+      <p className="text-sm text-gray-600">{formattedDate}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" />
         <ContentWithPopups content={data.desc} keyWords={data.keyWords} />
