@@ -6,7 +6,7 @@ import { GB, JP } from "country-flag-icons/react/3x2";
 export default function WordModal({ word, japanese }) {
   const [display, setDisplay] = useState(false);
   const [data, setData] = useState(null);
-  const [definitionLoading, setdefLoading] = useState(true);
+  const [definitionLoading, setDefLoading] = useState(true);
   const [exampleLoading, setExampleLoading] = useState(true);
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
@@ -28,7 +28,7 @@ export default function WordModal({ word, japanese }) {
     };
 
     fetchData();
-  }, []);
+  }, [word]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,9 +45,8 @@ export default function WordModal({ word, japanese }) {
     };
 
     fetchData();
-  }, []);
+  },[japanese]);
 
-  // const audioUrl = dictionaryData[0].phonetics[0]?.audio;
 
 
   return (
@@ -68,7 +67,7 @@ export default function WordModal({ word, japanese }) {
             id="modal"
             className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
           >
-            <div className="flex flex-col width-full">
+            <div className="flex flex-col w-full">
             <div className="flex justify-end">
             <div
               onClick={() => setDisplay(false)}
@@ -77,7 +76,7 @@ export default function WordModal({ word, japanese }) {
               X
             </div>
             </div>
-            <div>
+            <div className="text-center">
               <h2 className="m-0">{word}</h2>
             </div>
             </div>
