@@ -93,7 +93,7 @@ export default function WordModal({ word, japanese }) {
             ) : (
               <p>Loading...</p>
             )}
-            { exampleData.data && exampleData.data.length > 0 ? (
+            {!exampleLoading && exampleData.data && exampleData.data.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col items-right">
                   <JP className=" w-[30px] h-4" />
