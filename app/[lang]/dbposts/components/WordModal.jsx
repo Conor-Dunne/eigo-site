@@ -5,49 +5,41 @@ import { GB, JP } from "country-flag-icons/react/3x2";
 
 export default function WordModal({ word, japanese }) {
   const [display, setDisplay] = useState(false);
-  const [data, setData] = useState(null);
-  const [definitionLoading, setDefLoading] = useState(true);
-  const [exampleLoading, setExampleLoading] = useState(true);
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
+  const [exampleLoading, setExampleLoading] = useState(true)
 
+  const fetchData = async () => {
+    try {
+      // Fetch dictionary data
+      const dictionaryResponse = await fetch(
+        `https://api.dictionaryapi.dev/api/v2/entries/en/${pluralize.singular(
+          word.replace(/[.,]/g, "").toLowerCase()
+        )}`
+      );
+      const dictionaryData = await dictionaryResponse.json();
+      setDictionaryData(dictionaryData);
+
+      // Fetch example data
+      const exampleResponse = await fetch(
+        `https://api.dev.tatoeba.org/unstable/sentences?lang=jpn&q=${japanese}&trans=eng&limit=3`
+      );
+      const exampleData = await exampleResponse.json();
+      setExampleData(exampleData);
+      setExampleLoading(false);
+      console.log(exampleData);
+
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
+
+  // useEffect to load data when word or japanese changes
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.dictionaryapi.dev/api/v2/entries/en/${pluralize.singular(
-            word.replace(/[.,]/g, "").toLowerCase()
-          )}`
-        );
-        const data = await response.json();
-        setDictionaryData(data);
-        setDefLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, [word]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await fetch(
-          `https://api.dev.tatoeba.org/unstable/sentences?lang=jpn&q=${japanese}&trans=eng&limit=3`
-        );
-        const data = await response.json();
-        setExampleData(data);
-        setExampleLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  },[japanese]);
-
-
+    if (display) {
+      fetchData();
+    }
+  }, [word, japanese, display]);
 
   return (
     <>
@@ -101,7 +93,7 @@ export default function WordModal({ word, japanese }) {
             ) : (
               <p>Loading...</p>
             )}
-            {!exampleLoading && exampleData.data && exampleData.data.length > 0 ? (
+            { exampleData.data && exampleData.data.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col items-right">
                   <JP className=" w-[30px] h-4" />

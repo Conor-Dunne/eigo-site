@@ -17,7 +17,12 @@ export default async function Home({
 
 
 
-  const allPosts = await prisma.Post.findMany();
+  const allPosts = await prisma.Post.findMany({
+    orderBy: {
+      createdAt: 'desc' ,
+    },
+  }
+  );
 
   return (
     <>
