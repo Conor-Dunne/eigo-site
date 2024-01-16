@@ -27,7 +27,6 @@ export default function WordModal({ word, japanese }) {
       const exampleData = await exampleResponse.json();
       setExampleData(exampleData);
       setExampleLoading(false);
-      console.log(exampleData);
 
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -93,7 +92,7 @@ export default function WordModal({ word, japanese }) {
             ) : (
               <p>Loading...</p>
             )}
-            {!exampleLoading && exampleData.data && exampleData.data.length > 0 ? (
+            {!exampleLoading && exampleData.data && exampleData.data.length > 0 && exampleData.data[0].text.includes(japanese) ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col items-right">
                   <JP className=" w-[30px] h-4" />
