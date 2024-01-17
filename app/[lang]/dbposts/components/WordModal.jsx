@@ -9,12 +9,14 @@ export default function WordModal({ word, japanese }) {
   const [exampleData, setExampleData] = useState(null);
   const [exampleLoading, setExampleLoading] = useState(true)
 
+  const cleanWord = word.replace(/[.,]/g, "").toLowerCase()
+
   const fetchData = async () => {
     try {
       // Fetch dictionary data
       const dictionaryResponse = await fetch(
         `https://api.dictionaryapi.dev/api/v2/entries/en/${pluralize.singular(
-          word.replace(/[.,]/g, "").toLowerCase()
+          cleanWord
         )}`
       );
       const dictionaryData = await dictionaryResponse.json();
@@ -56,7 +58,7 @@ export default function WordModal({ word, japanese }) {
         >
           <div
             id="modal"
-            className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
+            className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 "
           >
             <div className="flex flex-col w-full">
             <div className="flex justify-end">
@@ -68,7 +70,7 @@ export default function WordModal({ word, japanese }) {
             </div>
             </div>
             <div className="text-center">
-              <h2 className="m-0">{word}</h2>
+              <h2 className="m-0">{cleanWord}</h2>
             </div>
             </div>
             <div>{japanese}</div>
@@ -112,13 +114,13 @@ export default function WordModal({ word, japanese }) {
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
               <div className="flex flex-col items-right">
                 <JP className=" w-[30px] h-4" />
-                <p className="my-2">読み込み中</p>
+                <p className="my-2">{exampleLoading ? "読み込み中" : "データが見つかりませんでした :("}</p>
               </div>
            
                   <div className="flex flex-col items-right">
                     <GB className=" w-[30px] h-4" />
                     <p className="my-2">
-                      Loading...
+                      {exampleLoading ? "Loading..." : "No data found... :("}
                     </p>
                   </div>
             </div>
