@@ -21,6 +21,7 @@ export default function WordModal({ word, japanese }) {
       );
       const dictionaryData = await dictionaryResponse.json();
       setDictionaryData(dictionaryData);
+      console.log(dictionaryData)
 
       // Fetch example data
       const exampleResponse = await fetch(
@@ -70,7 +71,8 @@ export default function WordModal({ word, japanese }) {
             </div>
             </div>
             <div className="text-center">
-              <h2 className="m-0">{cleanWord}</h2>
+              <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
+              <p>{dictionaryData && dictionaryData[0].phonetic}</p>
             </div>
             </div>
             <div>{japanese}</div>
