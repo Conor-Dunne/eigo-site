@@ -6,10 +6,14 @@ export default async function ContentWithPopupsNew({ content, keyWords }) {
 
 let replacedContent = content
 
+
 keyWords.forEach(word => {
 
+  let regex = new RegExp(`\\b(${word.English}\\b)`)
 
-    replacedContent = reactStringReplace(replacedContent, word.English, (match, i) => (
+
+
+    replacedContent = reactStringReplace(replacedContent, regex, (match, i) => (
         <WordModal
             key={i}
             word={word.English}
@@ -17,9 +21,9 @@ keyWords.forEach(word => {
           />
       ))
 
+
 })
 
-console.log(replacedContent)
 
  
   

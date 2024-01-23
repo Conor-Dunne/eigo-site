@@ -21,8 +21,8 @@ const SinglePage = async ({ params }) => {
       <p className="text-sm text-gray-600">{formattedDate}</p>
       <article className="mt-8">
         <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" priority={true} />
-        <ContentWithPopups content={data.desc} keyWords={data.keyWords} />
-        {/* <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} /> */}
+        {/* <ContentWithPopups content={data.desc} keyWords={data.keyWords} /> */}
+        <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} />
 
       </article>
     </main>

@@ -8,6 +8,7 @@ export default function WordModal({ word, japanese }) {
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
   const [exampleLoading, setExampleLoading] = useState(true)
+  const [dictionaryDataResponse, setDictionaryDataResponse] = useState(null)
 
   const cleanWord = word.replace(/[.,]/g, "").toLowerCase()
 
@@ -20,8 +21,9 @@ export default function WordModal({ word, japanese }) {
         )}`
       );
       const dictionaryData = await dictionaryResponse.json();
+      setDictionaryDataResponse(dictionaryResponse.status)
       setDictionaryData(dictionaryData);
-      console.log(dictionaryData)
+      console.log(dictionaryResponse.status)
 
       // Fetch example data
       const exampleResponse = await fetch(
@@ -51,7 +53,6 @@ export default function WordModal({ word, japanese }) {
       >
         {word}
       </span>
-      <span> </span>
       {display && (
         <div
           id="overlay"
@@ -72,11 +73,11 @@ export default function WordModal({ word, japanese }) {
             </div>
             <div className="text-center">
               <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
-              <p>{dictionaryData && dictionaryData[0].phonetic}</p>
+              {/* <p>{dictionaryData && dictionaryData[0].phonetic}</p> */}
             </div>
             </div>
             <div>{japanese}</div>
-            {dictionaryData ? (
+            {dictionaryData && dictionaryDataResponse != 404 ? (
               <div className="flex justify-center">
                 {dictionaryData[0].phonetics.find(
                   (phonetic) => phonetic.audio !== ""
