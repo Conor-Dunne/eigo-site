@@ -11,8 +11,6 @@ keyWords.forEach(word => {
 
   let regex = new RegExp(`\\b(${word.English}\\b)`)
 
-
-
     replacedContent = reactStringReplace(replacedContent, regex, (match, i) => (
         <WordModal
             key={i}
@@ -20,15 +18,7 @@ keyWords.forEach(word => {
             japanese={word.Japanese}
           />
       ))
-
-
 })
-
-
- 
-  
-  
-
   return <article className="leading-loose">{replacedContent}</article>;
 }
 
