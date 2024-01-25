@@ -8,7 +8,8 @@ export default function WordModal({ word, japanese }) {
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
   const [exampleLoading, setExampleLoading] = useState(true)
-  const [dictionaryDataResponse, setDictionaryDataResponse] = useState(null)
+  const [dictionaryApiLoading, setDictionaryApiLoading] = useState(true);
+  const [dictionaryDataResponse, setDictionaryDataResponse] = useState(null);
 
   const cleanWord = word.replace(/[.,]/g, "").toLowerCase()
 
@@ -23,7 +24,8 @@ export default function WordModal({ word, japanese }) {
       const dictionaryData = await dictionaryResponse.json();
       setDictionaryDataResponse(dictionaryResponse.status)
       setDictionaryData(dictionaryData);
-      console.log(dictionaryResponse.status)
+      setDictionaryApiLoading(false);
+      console.log(dictionaryData);
 
       // Fetch example data
       const exampleResponse = await fetch(
@@ -48,7 +50,7 @@ export default function WordModal({ word, japanese }) {
   return (
     <>
       <span
-        className="cursor-pointer underline decoration-orange-500/80 decoration-2 decoration-dotted underline-offset-4 "
+        className="cursor-pointer underline decoration-orange-500 decoration-1 decoration-dashed underline-offset-4 "
         onClick={() => setDisplay(true)}
       >
         {word}
@@ -73,7 +75,7 @@ export default function WordModal({ word, japanese }) {
             </div>
             <div className="text-center">
               <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
-              {/* <p>{dictionaryData && dictionaryData[0].phonetic}</p> */}
+              <p>{dictionaryData && dictionaryDataResponse != 404 && dictionaryData[0].phonetic ? dictionaryData[0].phonetic : null }</p>
             </div>
             </div>
             <div>{japanese}</div>
@@ -95,7 +97,7 @@ export default function WordModal({ word, japanese }) {
                 )}
               </div>
             ) : (
-              <p>Loading...</p>
+              <p>{dictionaryApiLoading ? "Loading..." : null }</p>
             )}
             {!exampleLoading && exampleData.data && exampleData.data.length > 0 && exampleData.data[0].text.includes(japanese) ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
