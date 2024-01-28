@@ -7,11 +7,14 @@ export default function WordModal({ word, japanese }) {
   const [display, setDisplay] = useState(false);
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
-  const [exampleLoading, setExampleLoading] = useState(true)
+  const [exampleLoading, setExampleLoading] = useState(true);
   const [dictionaryApiLoading, setDictionaryApiLoading] = useState(true);
   const [dictionaryDataResponse, setDictionaryDataResponse] = useState(null);
 
-  const cleanWord = word.replace(/[.,]/g, "").toLowerCase()
+  const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
+  const singularWord = pluralize.singular(cleanWord);
+
+  console.log(japanese, word);
 
   const fetchData = async () => {
     try {
@@ -22,19 +25,33 @@ export default function WordModal({ word, japanese }) {
         )}`
       );
       const dictionaryData = await dictionaryResponse.json();
-      setDictionaryDataResponse(dictionaryResponse.status)
+      setDictionaryDataResponse(dictionaryResponse.status);
       setDictionaryData(dictionaryData);
       setDictionaryApiLoading(false);
-      console.log(dictionaryData);
 
       // Fetch example data
       const exampleResponse = await fetch(
-        `https://api.dev.tatoeba.org/unstable/sentences?lang=jpn&q=${japanese}&trans=eng&limit=3`
+        `https://api.dev.tatoeba.org/unstable/sentences?lang=eng&q=${pluralize.singular(
+          cleanWord
+        )}&trans=jpn&limit=4`
       );
       const exampleData = await exampleResponse.json();
-      setExampleData(exampleData);
-      setExampleLoading(false);
 
+      const filteredData = [];
+
+      // exampleData.data.map((obj) => {
+      //   console.log(obj);
+      //   if (obj.text.includes(word) || obj.text.includes(singularWord)) {
+      //     filteredData.push(obj);
+      //   }
+      // });
+
+
+
+      setExampleData(exampleData.data);
+      console.log(exampleData);
+
+      setExampleLoading(false);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -65,18 +82,24 @@ export default function WordModal({ word, japanese }) {
             className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 "
           >
             <div className="flex flex-col w-full">
-            <div className="flex justify-end">
-            <div
-              onClick={() => setDisplay(false)}
-              className="cursor-pointer text-lg font-extrabold text-cyan-950 border-2 border-cyan-950 px-2 rounded-md width-content"
-            >
-              X
-            </div>
-            </div>
-            <div className="text-center">
-              <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
-              <p>{dictionaryData && dictionaryDataResponse != 404 && dictionaryData[0].phonetic ? dictionaryData[0].phonetic : null }</p>
-            </div>
+              <div className="flex justify-end">
+                <div
+                  onClick={() => setDisplay(false)}
+                  className="cursor-pointer text-lg font-extrabold text-cyan-950 border-2 border-cyan-950 px-2 rounded-md width-content"
+                >
+                  X
+                </div>
+              </div>
+              <div className="text-center">
+                <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
+                <p>
+                  {dictionaryData &&
+                  dictionaryDataResponse != 404 &&
+                  dictionaryData[0].phonetic
+                    ? dictionaryData[0].phonetic
+                    : null}
+                </p>
+              </div>
             </div>
             <div>{japanese}</div>
             {dictionaryData && dictionaryDataResponse != 404 ? (
@@ -97,38 +120,50 @@ export default function WordModal({ word, japanese }) {
                 )}
               </div>
             ) : (
-              <p>{dictionaryApiLoading ? "Loading..." : null }</p>
+              <p>{dictionaryApiLoading ? "Loading..." : null}</p>
             )}
-            {!exampleLoading && exampleData.data && exampleData.data.length > 0 && exampleData.data[0].text.includes(japanese) ? (
-              <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
+            {!exampleLoading && exampleData.length > 0 ? (
+              <div className="flex flex-col text-sm w-full p-2 bg-slate-200 max-h-96">
                 <div className="flex flex-col items-right">
-                  <JP className=" w-[30px] h-4" />
-                  <p className="my-2">{exampleData.data[0].text}</p>
+                  {/* <JP className=" w-[30px] h-4" /> */}
+                  <div>
+                  <ul className="list-none">
+        {exampleData.map((obj, index) => ( // Added parentheses and index parameter
+          <li key={index}> {/* Added key prop */}
+            <p className="my-2">{obj.text}</p>
+            <p className="my-2">{obj.translations[0][0].text}</p>
+            <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
+          </li>
+        ))}
+      </ul>
+
+                  </div>
                 </div>
-                {exampleData.data[0].translations[0] &&
-                  exampleData.data[0].translations[0].length > 0 && (
-                    <div className="flex flex-col items-right">
-                      <GB className=" w-[30px] h-4" />
-                      <p className="my-2">
-                        {exampleData.data[0].translations[0][0].text}
-                      </p>
-                    </div>
-                  )}
+                {/* <div className="flex flex-col items-right">
+                  <GB className=" w-[30px] h-4" />
+                  <p className="my-2">
+                    {exampleData[0].translations[0][0].text}
+                  </p>
+                </div> */}
               </div>
             ) : (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
-              <div className="flex flex-col items-right">
-                <JP className=" w-[30px] h-4" />
-                <p className="my-2">{exampleLoading ? "読み込み中" : "データが見つかりませんでした :("}</p>
+                <div className="flex flex-col items-right">
+                  <JP className=" w-[30px] h-4" />
+                  <p className="my-2">
+                    {exampleLoading
+                      ? "読み込み中"
+                      : "データが見つかりませんでした :("}
+                  </p>
+                </div>
+
+                <div className="flex flex-col items-right">
+                  <GB className=" w-[30px] h-4" />
+                  <p className="my-2">
+                    {exampleLoading ? "Loading..." : "No data found... :("}
+                  </p>
+                </div>
               </div>
-           
-                  <div className="flex flex-col items-right">
-                    <GB className=" w-[30px] h-4" />
-                    <p className="my-2">
-                      {exampleLoading ? "Loading..." : "No data found... :("}
-                    </p>
-                  </div>
-            </div>
             )}
           </div>
         </div>
