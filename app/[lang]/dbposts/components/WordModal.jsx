@@ -14,7 +14,6 @@ export default function WordModal({ word, japanese }) {
   const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
   const singularWord = pluralize.singular(cleanWord);
 
-  console.log(japanese, word);
 
   const fetchData = async () => {
     try {
@@ -49,7 +48,6 @@ export default function WordModal({ word, japanese }) {
 
 
       setExampleData(exampleData.data);
-      console.log(exampleData);
 
       setExampleLoading(false);
     } catch (error) {
@@ -131,7 +129,7 @@ export default function WordModal({ word, japanese }) {
         {exampleData.map((obj, index) => ( // Added parentheses and index parameter
           <li key={index}> {/* Added key prop */}
             <p className="my-2">{obj.text}</p>
-            <p className="my-2">{obj.translations[0][0].text}</p>
+            <p className="my-2">{obj.translations.map( array => array.length > 0 && array[0].text)}</p>
             <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
           </li>
         ))}
