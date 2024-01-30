@@ -32,7 +32,7 @@ export default function WordModal({ word, japanese }) {
       const exampleResponse = await fetch(
         `https://api.dev.tatoeba.org/unstable/sentences?lang=eng&q=${pluralize.singular(
           cleanWord
-        )}&trans=jpn&limit=4`
+        )}&trans=jpn&limit=3`
       );
       const exampleData = await exampleResponse.json();
 
@@ -77,7 +77,7 @@ export default function WordModal({ word, japanese }) {
         >
           <div
             id="modal"
-            className="relative flex flex-col shadow-lg border-2 max-w-[90%] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 "
+            className="relative flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 "
           >
             <div className="flex flex-col w-full">
               <div className="flex justify-end">
@@ -122,10 +122,10 @@ export default function WordModal({ word, japanese }) {
             )}
             {!exampleLoading && exampleData.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200 max-h-96">
-                <div className="flex flex-col items-right">
+                <div className="flex flex-col">
                   {/* <JP className=" w-[30px] h-4" /> */}
                   <div>
-                  <ul className="list-none">
+                  <ul className="list-none p-0">
         {exampleData.map((obj, index) => ( // Added parentheses and index parameter
           <li key={index}> {/* Added key prop */}
             <p className="my-2">{obj.text}</p>
