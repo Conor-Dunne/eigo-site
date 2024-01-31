@@ -80,7 +80,7 @@ export default function WordModal({ word, japanese }) {
         >
           <div
             id="modal"
-            className="flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 mt-[20px]"
+            className="absolute top-[5%] flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
           >
             <div className="flex flex-col w-full">
               <div className="flex justify-end">
@@ -131,8 +131,8 @@ export default function WordModal({ word, japanese }) {
                   <ul className="list-none p-0">
         {exampleData.map((obj, index) => ( // Added parentheses and index parameter
           <li key={index}> {/* Added key prop */}
-            <p className="my-2">{obj.text}</p>
-            <p className="my-2">{obj.translations.map( array => array.length > 0 && array[0].text)}</p>
+            <p className="my-2 font-bold">{obj.text}</p>
+            <p className="my-2 font-thin">{obj.translations.map( array => array.length > 0 && array[0].text)}</p>
             <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
           </li>
         ))}
