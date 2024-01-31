@@ -15,6 +15,9 @@ export default function WordModal({ word, japanese }) {
   const singularWord = pluralize.singular(cleanWord);
 
 
+  // lock scroll when modal is open
+  document.body.style.overflow = !display ? "unset" : "hidden"
+
   const fetchData = async () => {
     try {
       // Fetch dictionary data
@@ -73,11 +76,11 @@ export default function WordModal({ word, japanese }) {
       {display && (
         <div
           id="overlay"
-          className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-400 bg-opacity-50"
+          className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-400 bg-opacity-50 overflow-scroll py-2"
         >
           <div
             id="modal"
-            className="relative flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 "
+            className="flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100 mt-[20px]"
           >
             <div className="flex flex-col w-full">
               <div className="flex justify-end">
@@ -121,7 +124,7 @@ export default function WordModal({ word, japanese }) {
               <p>{dictionaryApiLoading ? "Loading..." : null}</p>
             )}
             {!exampleLoading && exampleData.length > 0 ? (
-              <div className="flex flex-col text-sm w-full p-2 bg-slate-200 max-h-96">
+              <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col">
                   {/* <JP className=" w-[30px] h-4" /> */}
                   <div>
