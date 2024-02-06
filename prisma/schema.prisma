@@ -48,6 +48,7 @@ model Vocabulary {
   Japanese String
   postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
+  searchByEng Boolean @default(true)
 }
 
 

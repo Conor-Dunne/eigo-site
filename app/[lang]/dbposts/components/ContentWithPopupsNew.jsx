@@ -16,6 +16,7 @@ keyWords.forEach(word => {
             key={i}
             word={word.English}
             japanese={word.Japanese}
+            searchByEngBoolean={word.searchByEng}
           />
       ))
 })

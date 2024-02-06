@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import pluralize from "pluralize";
 import { GB, JP } from "country-flag-icons/react/3x2";
 
-export default function WordModal({ word, japanese }) {
+export default function WordModal({ word, japanese, searchByEngBoolean }) {
   const [display, setDisplay] = useState(false);
   const [dictionaryData, setDictionaryData] = useState(null);
   const [exampleData, setExampleData] = useState(null);
@@ -14,6 +14,10 @@ export default function WordModal({ word, japanese }) {
   const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
   const singularWord = pluralize.singular(cleanWord);
 
+  const searchByEng = `lang=eng&q=%3D${pluralize.singular(
+    cleanWord
+  )}&trans=jpn`;
+  const searchByJpn = `lang=jpn&q="${japanese}"&trans=eng`;
 
   // lock scroll when modal is open
   document.body.style.overflow = !display ? "unset" : "hidden"
@@ -33,9 +37,9 @@ export default function WordModal({ word, japanese }) {
 
       // Fetch example data
       const exampleResponse = await fetch(
-        `https://api.dev.tatoeba.org/unstable/sentences?lang=eng&q=${pluralize.singular(
-          cleanWord
-        )}&trans=jpn&limit=3`
+        
+
+        `https://api.dev.tatoeba.org/unstable/sentences?${searchByEngBoolean ? searchByEng : searchByJpn }&limit=3&sort=words`
       );
       const exampleData = await exampleResponse.json();
 
