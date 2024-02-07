@@ -1,6 +1,20 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
+//npx prisma generate (to update changes)
+
+enum PartsOfSpeech {
+noun
+pronoun
+verb
+adjective
+adverb
+preposition
+conjunction
+interjection
+null
+}
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -49,6 +63,7 @@ model Vocabulary {
   postSlug  String
   post      Post     @relation(fields: [postSlug], references: [slug])
   searchByEng Boolean @default(true)
+  partOfSpeech PartsOfSpeech @default(null)
 }
 
 
