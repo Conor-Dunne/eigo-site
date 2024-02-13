@@ -84,10 +84,10 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
         >
           <div
             id="modal"
-            className="absolute top-[5%] flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-8 bg-white p-4 rounded-md opacity-100"
+            className="absolute top-[5%] flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100"
           >
             <div className="flex flex-col w-full">
-              <div className="flex justify-end">
+              <div className="flex justify-end items-center">
                 <div
                   onClick={() => setDisplay(false)}
                   className="cursor-pointer text-lg font-extrabold text-cyan-950 border-2 border-cyan-950 px-2 rounded-md width-content"
@@ -95,7 +95,12 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                   X
                 </div>
               </div>
-              <div className="text-center">
+             
+            </div>
+            <div className="text-[10px] bg-slate-200 px-2 border border-rose-600 rounded-md">
+                  <p className="m-0">In beta | ベータばん | β版</p>
+                </div>
+            <div className="text-center">
                 <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
                 <p>
                   {dictionaryData &&
@@ -105,7 +110,6 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                     : null}
                 </p>
               </div>
-            </div>
             <div>{japanese}</div>
             {dictionaryData && dictionaryDataResponse != 404 ? (
               <div className="flex justify-center">
