@@ -130,13 +130,12 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
             {!exampleLoading && exampleData.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col">
-                  {/* <JP className=" w-[30px] h-4" /> */}
                   <div>
                   <ul className="list-none p-0">
         {exampleData.map((obj, index) => ( // Added parentheses and index parameter
           <li key={index}> {/* Added key prop */}
-            <p className="my-2 font-bold">{obj.text}</p>
-            <p className="my-2 font-thin">{obj.translations.map( array => array.length > 0 && array[0].text)}</p>
+            <p className="my-2 font-bold">{ searchByEngBoolean ? obj.text : obj.translations.map( array => array.length > 0 && array[0].text) }</p>
+            <p className="my-2 font-thin">{ searchByEngBoolean ? obj.translations.map( array => array.length > 0 && array[0].text) : obj.text }</p>
             <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
           </li>
         ))}
@@ -144,12 +143,6 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
 
                   </div>
                 </div>
-                {/* <div className="flex flex-col items-right">
-                  <GB className=" w-[30px] h-4" />
-                  <p className="my-2">
-                    {exampleData[0].translations[0][0].text}
-                  </p>
-                </div> */}
               </div>
             ) : (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
