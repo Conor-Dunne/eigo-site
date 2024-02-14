@@ -11,7 +11,7 @@ export default function CreatPost () {
   return (
      !isAdmin ? (
       <div>
-      You don't have access.
+      <p>Please sign in</p>
   </div>
      ) : (
       <div className="w-full m-auto flex my-4">
