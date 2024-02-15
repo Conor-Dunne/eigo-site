@@ -46,8 +46,25 @@ export default function CreatPost () {
               placeholder="Enter Description"
               className="rounded-md px-4 py-2 w-full my-2"
             ></textarea>
+            <h2>Difficult words and phrases</h2>
+            <div className="flex">
+            <input
+              // ref={titleRef}
+              placeholder="english"
+              onChange={handleInputChangeImg}
+              type="text"
+              className="rounded-md px-4 w-full py-2 my-2 "
+            />
+            <input
+              // ref={titleRef}
+              placeholder="japanese"
+              onChange={handleInputChangeImg}
+              type="text"
+              className="rounded-md px-4 w-full py-2 my-2 "
+            />
+            </div>
             <button className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100">
-              Submit
+              Save
             </button>
           </form>
         </div>
