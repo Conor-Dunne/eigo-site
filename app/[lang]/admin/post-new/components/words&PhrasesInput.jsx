@@ -29,7 +29,7 @@ export default function WordsAndPhrasesInput({ placeholder, onChangFunc }) {
                     <option value="conjunction">conjunction</option>
                     <option value="adjective">adjective</option>
                     <option value="interjection">interjection</option>
-                    <option value="null" selected>null</option>
+                    <option value="null">null</option>
                 </select>
                 <button className="font-semibold px-4 py-2 shadow-xl bg-green-400 rounded-lg hover:bg-slate-100">
               Add
