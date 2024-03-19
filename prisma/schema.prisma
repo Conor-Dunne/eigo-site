@@ -61,7 +61,7 @@ model Vocabulary {
   English  String
   Japanese String
   postSlug  String
-  post      Post     @relation(fields: [postSlug], references: [slug])
+  post      Post?     @relation(fields: [postSlug], references: [slug])
   searchByEng Boolean @default(true)
   partOfSpeech PartsOfSpeech @default(null)
 }
