@@ -1,17 +1,14 @@
 import Image from "next/image";
-import ContentWithPopups from "../components/ContentWithPopups"
+import ContentWithPopups from "../components/ContentWithPopups";
 import ContentWithPopupsNew from "../components/ContentWithPopupsNew";
-import getData from "../helpers/getData"
-import getFormattedDate from "@/lib/getFormattedDate"
-
+import getData from "../helpers/getData";
+import getFormattedDate from "@/lib/getFormattedDate";
 
 const SinglePage = async ({ params }) => {
   const { slug } = params;
 
-
   const data = await getData(slug);
-  const formattedDate = getFormattedDate(data.createdAt)
-
+  const formattedDate = getFormattedDate(data.createdAt);
 
   return (
     <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28 min-w-[260px]">
@@ -20,10 +17,16 @@ const SinglePage = async ({ params }) => {
       </h1>
       <p className="text-sm text-gray-600">{formattedDate}</p>
       <article className="mt-8">
-        <Image src={data.img} width={600} height={600} alt="Picture of the author" className="rounded-lg" priority={true} />
+        <Image
+          src={data.img}
+          width={600}
+          height={600}
+          alt="Picture of the author"
+          className="rounded-lg"
+          priority={true}
+        />
         {/* <ContentWithPopups content={data.desc} keyWords={data.keyWords} /> */}
         <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} />
-
       </article>
     </main>
   );

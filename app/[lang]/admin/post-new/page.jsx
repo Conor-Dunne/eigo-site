@@ -26,7 +26,7 @@ const getAllPosts = async () => {
 
 export default function CreatPost() {
 
-  const [isAdmin, setIsAdmin] = useState(true)
+  const [isAdmin, setIsAdmin] = useState(false)
   const [title, setTitle] = useState("Test Post");
   const [imgSrc, setImgSrc] = useState("https://images.unsplash.com/photo-1707343848723-bd87dea7b118?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   const [slug, setSlug] = useState("asdasd");
