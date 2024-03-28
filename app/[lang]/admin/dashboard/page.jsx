@@ -23,15 +23,30 @@ export default async function Dashboard() {
   const posts = await getData();
 
   return (
-    <div className="flex flex-col items-center gap-4 pt-7">
-      <h1>DASHBOARD</h1>
+    <div className="flex flex-col items-center gap-4 pt-7 mx-3">
+      <h1 className=" font-bold text-4xl underline p-6">DASHBOARD</h1>
       <ul className="flex flex-col items-left gap-8">
         {posts.map((post) => (
           <li key={post.id}>
-            <Link href={`/admin/post-edit/${post.slug}`}>{post.title}</Link>
+            <div className="flex gap-4 justify-between items-center ">
+              <h2>{post.title}</h2>
+
+              <Link
+                href={`/admin/post-edit/${post.slug}`}
+                className=" bg-blue-500 p-2 rounded-lg"
+              >
+                Edit
+              </Link>
+            </div>
           </li>
         ))}
       </ul>
+      <Link
+        href={`/admin/post-new`}
+        className=" p-5 my-6 bg-green-400 rounded-lg"
+      >
+        ADD POST
+      </Link>
     </div>
   );
 }
