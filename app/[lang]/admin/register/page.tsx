@@ -12,7 +12,7 @@ export default function Register({
 }) {
 
 
-  // redirect("/") //disable for now
+  redirect("/") //disable for now
 
 
   const [formData, setFormData] = useState({
@@ -42,39 +42,42 @@ export default function Register({
     if (response.ok) {
       // User was successfully created, you can redirect to a success page or do something else
       // For example, you can use router.push('/success') if you have Next.js routing set up.
+      console.log("User created")
     } else {
       // Handle errors here, display error messages, etc.
+      console.log("Registration error")
     }
   };
 
+  const labelStyle = "flex flex-col"
+  const inputStyle = " bg-slate-200 rounded-lg p-2"
+
   return (
-    <div>
-      <h1>Register</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
+    <div className="flex flex-col justify-center items-center mt-[10%] gap-5">
+      <h1 className="font-extrabold">Enter your details</h1>
+      <form onSubmit={handleSubmit}
+      className="flex flex-col gap-4"
+      >
+        <label className={labelStyle}>
           Name:
-          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          <input className={inputStyle} type="text" name="name" value={formData.name} onChange={handleChange} required/>
         </label>
-        <br />
-        <label>
+        <label  className={labelStyle}>
           Email:
-          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          <input className={inputStyle} type="email" name="email" value={formData.email} onChange={handleChange} required />
         </label>
-        <br />
-        <label>
+        <label  className={labelStyle}>
           Password:
-          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          <input className={inputStyle} type="password" name="password" value={formData.password} onChange={handleChange} required />
         </label>
-        <br />
-        <label>
+        <label  className={labelStyle}>
           Role:
-          <select name="role" value={formData.role} onChange={handleChange}>
+          <select className={inputStyle} name="role" value={formData.role} onChange={handleChange} required>
             <option value="USER">User</option>
             <option value="ADMIN">Admin</option>
           </select>
         </label>
-        <br />
-        <button type="submit">Register</button>
+        <button className=" bg-green-500 rounded-lg p-2" type="submit">Register</button>
       </form>
     </div>
   );

@@ -22,6 +22,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sounds.d.ts", "app/[lang]/admin/dashboard/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sounds.d.ts", "app/[lang]/admin/dashboard/page.jsx", "app/[lang]/admin/login/form.jsx", "app/[lang]/api/auth/[...nextauth]/routes.jsx"],
   "exclude": ["node_modules"]
 }
