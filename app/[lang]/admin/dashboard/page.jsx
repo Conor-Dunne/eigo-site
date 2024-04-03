@@ -9,7 +9,7 @@ export default async function Dashboard() {
         ? "https://eigo-site.vercel.app"
         : "http://localhost:3000";
 
-    const res = await fetch(`${baseUrl}/${"ja" || "en"}/api/posts`, {
+    const res = await fetch(`${baseUrl}/api/posts`, {
       cache: "no-store",
     });
 

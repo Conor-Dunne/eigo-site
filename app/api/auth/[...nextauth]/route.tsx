@@ -1,5 +1,5 @@
 //@ts-nocheck
-import NextAuth from "next-auth/next";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import prisma from "@/prisma";
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -20,6 +20,7 @@ export const authOptions = {
                 },
             },
             async authorize(credentials) {
+                alert("here")
                 // Check to see if email, password, and role are provided
                 if (!credentials.email || !credentials.password || !credentials.role) {
                     throw new Error('Please enter an email, password, and select a role')
@@ -57,11 +58,11 @@ export const authOptions = {
             },
         }),  
     ],
-    secret: process.env.JWT_SECRET,
-    session: {
-        strategy: "jwt",
-    },
-    debug: process.env.NODE_ENV === "development",
+    // secret: process.env.JWT_SECRET,
+    // session: {
+    //     strategy: "jwt",
+    // },
+    // debug: process.env.NODE_ENV === "development",
 }
 
 const handler = NextAuth(authOptions)

@@ -24,13 +24,18 @@ export default function Form() {
     });
 
     if (result?.error) {
+      alert("signin error")
       // Handle sign-in error
       console.error("Sign-in error:", result.error);
     } else {
+      alert("signin sucess")
+
       // Sign-in successful, redirect to desired page
       router.push("/");
     }
   } catch (error) {
+    alert("error during signin", error)
+
     console.error("Error during sign-in:", error);
   }
 }

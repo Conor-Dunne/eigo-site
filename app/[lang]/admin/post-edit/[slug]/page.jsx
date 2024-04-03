@@ -11,7 +11,7 @@ const EditPost = async ({ params }) => {
         ? "https://eigo-site.vercel.app"
         : "http://localhost:3000";
 
-    const res = await fetch(`${baseUrl}/${"ja" || "en"}/api/posts/${slug}`, {
+    const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
       cache: "no-store",
     });
 

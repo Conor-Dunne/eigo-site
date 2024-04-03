@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Locale, i18n } from '@/i18n.config'
 import Header from './components/header'
+import Providers from './providers'
 
 import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
@@ -25,10 +26,12 @@ export default function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={inter.className}>
+    <Providers>
     <div className=" relative max-w-9xl mx-auto">
        <Header lang={params.lang} />
         {children}
        </div>
+    </Providers>
       </body>
     </html>
   )

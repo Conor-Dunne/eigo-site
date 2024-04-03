@@ -14,7 +14,7 @@ const baseUrl = process.env.NODE_ENV === 'production'
 
 
 const getAllPosts = async () => {
-  const res = await fetch(`${baseUrl}/${ "ja" || "en"}/api/posts`, {
+  const res = await fetch(`${baseUrl}/api/posts`, {
     cache: "no-store",
   });
 
@@ -51,7 +51,7 @@ export default function CreatPost() {
 
   const handleSubmit = async () => {
     try {
-      const postResponse = await fetch(`${baseUrl}/${ "ja" || "en"}/api/posts`, {
+      const postResponse = await fetch(`${baseUrl}/api/posts`, {
         method: "POST",
         body: JSON.stringify({
           title,
@@ -71,7 +71,7 @@ export default function CreatPost() {
   
       router.push(`/`);
   
-      const vocabPostResponse = await fetch(`${baseUrl}/${ "ja" || "en"}/api/vocabulary`, {
+      const vocabPostResponse = await fetch(`${baseUrl}/api/vocabulary`, {
         method: "POST",
         body: JSON.stringify(vocab),
       });
