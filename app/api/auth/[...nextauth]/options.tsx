@@ -53,7 +53,7 @@ export const options: NextAuthOptions = {
             },
         }),  
     ],
-    // secret: process.env.JWT_SECRET,
+    secret: process.env.NEXTAUTH_SECRET,
     // session: {
     //     strategy: "jwt",
     // },
