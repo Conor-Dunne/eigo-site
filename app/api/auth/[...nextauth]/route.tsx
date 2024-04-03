@@ -13,16 +13,15 @@ export const authOptions = {
             credentials: {
                 email: { label: "Email", type: "text", placeholder: "jsmith" },
                 password: { label: "Password", type: "password" },
-                role: {  // Add this section for role selection
-                    label: "Role",
-                    type: "select",
-                    options: ["USER", "ADMIN"],  // Options should match your enum values
-                },
+                // role: {  // Add this section for role selection
+                //     label: "Role",
+                //     type: "select",
+                //     options: ["USER", "ADMIN"],  // Options should match your enum values
+                // },
             },
             async authorize(credentials) {
-                alert("here")
                 // Check to see if email, password, and role are provided
-                if (!credentials.email || !credentials.password || !credentials.role) {
+                if (!credentials.email || !credentials.password) {
                     throw new Error('Please enter an email, password, and select a role')
                 }
 
@@ -46,13 +45,8 @@ export const authOptions = {
                     throw new Error('Incorrect password')
                 }
 
-                // Check if the provided role is valid (USER or ADMIN)
-                if (credentials.role !== "USER" && credentials.role !== "ADMIN") {
-                    throw new Error('Invalid role selection')
-                }
+                console.log(user)
 
-                // Assign the selected role to the user
-                user.role = credentials.role;
 
                 return user;
             },
