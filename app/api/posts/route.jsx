@@ -4,7 +4,11 @@ import { NextResponse } from "next/server";
 // GET ALL POSTS
 export const GET = async () => {
     try {
-      const categories = await prisma.post.findMany();
+      const categories = await prisma.post.findMany({
+        orderBy: {
+          createdAt: 'desc' ,
+        },
+      });
   
       return new NextResponse(JSON.stringify(categories, { status: 200 }));
     } catch (err) {
