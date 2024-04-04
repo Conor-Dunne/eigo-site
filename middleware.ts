@@ -1,10 +1,30 @@
+import { withAuth } from 'next-auth/middleware'
+
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
-import { i18n } from '@/i18n.config'
+import { Locale, i18n } from '@/i18n.config'
 
 import { match as matchLocale } from '@formatjs/intl-localematcher'
 import Negotiator from 'negotiator'
+
+const protectedPaths = ['/admin/dashboard']
+
+function getProtectedRoutes(protectedPaths: string[], locales: Locale[]) {
+  let protectedPathsWithLocale = [...protectedPaths]
+
+  protectedPaths.forEach(route => {
+    locales.forEach(
+      locale =>
+        (protectedPathsWithLocale = [
+          ...protectedPathsWithLocale,
+          `/${locale}${route}`
+        ])
+    )
+  })
+
+  return protectedPathsWithLocale
+}
 
 function getLocale(request: NextRequest): string | undefined {
   const negotiatorHeaders: Record<string, string> = {}
@@ -18,23 +38,50 @@ function getLocale(request: NextRequest): string | undefined {
   return locale
 }
 
-export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
-  const pathnameIsMissingLocale = i18n.locales.every(
-    locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  )
-
-  // Redirect if there is no locale
-  if (pathnameIsMissingLocale) {
-    const locale = getLocale(request)
-    return NextResponse.redirect(
-      new URL(
-        `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
-        request.url
-      )
+const middleware = withAuth(
+  function middleware(request) {
+    const token = request.nextauth?.token
+    console.log(token)
+    const pathname = request.nextUrl.pathname
+    const pathnameIsMissingLocale = i18n.locales.every(
+      locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
     )
+
+    const protectedPathsWithLocale = getProtectedRoutes(protectedPaths, [
+      ...i18n.locales
+    ])
+
+    // If the user is not authenticated and the path is protected, redirect to login
+    const callbackUrl = pathname || '/'
+    console.log(pathname)
+    if (!token && pathname.includes("/admin")) {
+      return NextResponse.redirect(
+        new URL(
+          `/api/auth/signin?callbackUrl=${encodeURIComponent(callbackUrl)}`,
+          request.url
+        )
+      )
+    }
+
+    // Redirect if there is no locale
+    if (pathnameIsMissingLocale) {
+      const locale = getLocale(request)
+      return NextResponse.redirect(
+        new URL(
+          `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+          request.url
+        )
+      )
+    }
+  },
+  {
+    callbacks: {
+      authorized: ({ token }) => true
+    }
   }
-}
+)
+
+export default middleware
 
 export const config = {
   // Matcher ignoring `/_next/` and `/api/`

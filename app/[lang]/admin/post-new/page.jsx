@@ -26,7 +26,6 @@ const getAllPosts = async () => {
 
 export default function CreatPost() {
 
-  const [isAdmin, setIsAdmin] = useState(false)
   const [title, setTitle] = useState("Test Post");
   const [imgSrc, setImgSrc] = useState("https://images.unsplash.com/photo-1707343848723-bd87dea7b118?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   const [slug, setSlug] = useState("asdasd");
@@ -93,11 +92,6 @@ export default function CreatPost() {
 
 
   return (
-    !isAdmin ? (
-      <div>
-        <p>Please sign in</p>
-      </div>
-    ) : (
       <div className="w-full m-auto flex my-4">
         <div className="flex flex-col justify-center items-center m-auto">
           <p className="text-2xl text-slate-200 font-bold p-3">
@@ -145,7 +139,7 @@ export default function CreatPost() {
         </div>
       </div>
     )
-  )
+
 
 }
 
