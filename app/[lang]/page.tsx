@@ -17,12 +17,24 @@ export default async function Home({
 
 
 
-  const allPosts = await prisma.Post.findMany({
-    orderBy: {
-      createdAt: 'desc' ,
-    },
-  }
-  );
+  const getData = async () => {
+    const baseUrl =
+      process.env.NODE_ENV === "production"
+        ? "https://eigo-site.vercel.app"
+        : "http://localhost:3000";
+
+    const res = await fetch(`${baseUrl}/api/posts`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed");
+    }
+
+    return res.json();
+  };
+
+  const allPosts = await getData();
 
   return (
     <>
