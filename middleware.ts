@@ -41,7 +41,6 @@ function getLocale(request: NextRequest): string | undefined {
 const middleware = withAuth(
   function middleware(request) {
     const token = request.nextauth?.token
-    console.log(token)
     const pathname = request.nextUrl.pathname
     const pathnameIsMissingLocale = i18n.locales.every(
       locale => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
@@ -53,7 +52,6 @@ const middleware = withAuth(
 
     // If the user is not authenticated and the path is protected, redirect to login
     const callbackUrl = pathname || '/'
-    console.log(pathname)
     if (!token && pathname.includes("/admin")) {
       return NextResponse.redirect(
         new URL(

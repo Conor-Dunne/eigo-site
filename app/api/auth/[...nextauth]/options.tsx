@@ -46,7 +46,6 @@ export const options: NextAuthOptions = {
                     throw new Error('Incorrect password')
                 }
 
-                console.log(user)
 
 
                 return user;
@@ -54,8 +53,8 @@ export const options: NextAuthOptions = {
         }),  
     ],
     secret: process.env.NEXTAUTH_SECRET,
-    // session: {
-    //     strategy: "jwt",
-    // },
+    session: {
+        strategy: "jwt",
+    },
     // debug: process.env.NODE_ENV === "development",
 }

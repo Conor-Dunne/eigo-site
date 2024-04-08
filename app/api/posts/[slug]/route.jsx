@@ -23,3 +23,20 @@ export const GET = async (req, { params }) => {
 
 
   // EDIT A POST
+
+  export const PUT = async (req, res) => {
+    try {
+      const { img, desc, slug} = await req.json(); 
+      const post = await prisma.post.update({
+        data: { img, desc },
+        where: { slug },
+      });
+  
+      return new NextResponse(JSON.stringify(post, { status: 200 }));
+    } catch (err) {
+      console.log(err);
+      return new NextResponse(
+        JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
+      );
+    }
+  };
