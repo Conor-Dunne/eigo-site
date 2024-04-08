@@ -6,7 +6,7 @@ export default function Loading() {
       <div className='flex items-center justify-center w-full'>
        <DNA
   visible={true}
-  height="50"
+  height="20"
   width="80"
   ariaLabel="dna-loading"
   wrapperStyle={{}}

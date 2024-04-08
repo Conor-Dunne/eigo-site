@@ -2,8 +2,9 @@
 
 import { useState } from "react"
 import Image from "next/image";
-import TextInputBox from "./components/TextInput"
-import WordsAndPhrasesInput from "./components/words&PhrasesInput"
+import TextInputBox from "../components/TextInput"
+import WordsAndPhrasesInput from "../components/words&PhrasesInput"
+import DashboardLink from "../components/dashboardLink"
 import { useRouter } from "next/navigation";
 
 const slugify = require('slugify')
@@ -33,7 +34,6 @@ export default function CreatPost() {
   const [vocab, setVocab] = useState([]);
 
 
-  console.log(vocab)
 
 
   const handleAddVocab = (obj) => {
@@ -94,6 +94,7 @@ export default function CreatPost() {
   return (
       <div className="w-full m-auto flex my-4">
         <div className="flex flex-col justify-center items-center m-auto">
+          <DashboardLink />
           <p className="text-2xl text-slate-200 font-bold p-3">
             Make it wonderful! 🚀
           </p>
