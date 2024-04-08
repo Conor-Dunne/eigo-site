@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import pluralize from "pluralize";
 import { GB, JP } from "country-flag-icons/react/3x2";
+import Loading from "./loading";
+
 
 export default function WordModal({ word, japanese, searchByEngBoolean }) {
   const [display, setDisplay] = useState(false);
@@ -84,7 +86,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
         >
           <div
             id="modal"
-            className="absolute top-[5%] flex flex-col shadow-lg border-2 max-w-[500px] min-w-[250px] border-cyan-950 justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100"
+            className="absolute top-[5%] flex flex-col shadow-lg border-2 w-[90%] max-w-96 border-cyan-950 justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100"
           >
             <div className="flex flex-col w-full">
               <div className="flex justify-end items-center">
@@ -129,7 +131,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                 )}
               </div>
             ) : (
-              <p>{dictionaryApiLoading ? "Loading..." : null}</p>
+              <p>{dictionaryApiLoading ? <Loading /> : null}</p>
             )}
             {!exampleLoading && exampleData.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
@@ -154,7 +156,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                   <JP className=" w-[30px] h-4" />
                   <p className="my-2">
                     {exampleLoading
-                      ? "読み込み中"
+                      ? <Loading />
                       : "データが見つかりませんでした :("}
                   </p>
                 </div>
@@ -162,7 +164,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                 <div className="flex flex-col items-right">
                   <GB className=" w-[30px] h-4" />
                   <p className="my-2">
-                    {exampleLoading ? "Loading..." : "No data found... :("}
+                    {exampleLoading ? <Loading /> : "No data found... :("}
                   </p>
                 </div>
               </div>
