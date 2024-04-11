@@ -32,6 +32,7 @@ export default function CreatPost() {
   const [slug, setSlug] = useState("asdasd");
   const [desc, setDesc] = useState("Test desc");
   const [vocab, setVocab] = useState([]);
+  const [audio, setAudio] = useState(null);
 
 
 
@@ -55,6 +56,7 @@ export default function CreatPost() {
         body: JSON.stringify({
           title,
           desc: desc,
+          audio: audio,
           img: imgSrc,
           slug: slug,
         }),
@@ -113,15 +115,14 @@ export default function CreatPost() {
               setSlug(slugify(title).toLowerCase())
             }} />
             <TextInputBox placeholder={"Add img src url"} onChangFunc={(e) => setImgSrc(e.target.value)} />
-            <p>{imgSrc}</p>
             {imgSrc ? <Image src={imgSrc} width={40} height={40} alt="Picture of the author" className="rounded-lg" priority={true} /> : <p>no image</p>}
+            <TextInputBox placeholder={"Add audio url"} onChangFunc={(e) => setAudio(e.target.value)} />
             <textarea
               // ref={descriptionRef}
               placeholder="Enter Description"
               className="rounded-md px-4 py-2 w-full my-2 border border-slate-300  h-[300px] "
               onChange={(e) => setDesc(e.target.value)}
             ></textarea>
-            <p>{desc}</p>
              < WordsAndPhrasesInput vocab={vocab} addVocab={handleAddVocab} slug={slug} />
 
              <ul className="w-full p-4">

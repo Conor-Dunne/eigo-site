@@ -22,10 +22,11 @@ const SinglePage = async ({ params }) => {
           width={600}
           height={600}
           alt="Picture of the author"
-          className="rounded-lg"
+          className="rounded-lg w-full"
           priority={true}
         />
-        {/* <ContentWithPopups content={data.desc} keyWords={data.keyWords} /> */}
+        {data.audio &&         <iframe className=" rounded-md" src={data.audio} width="100%" height="100" frameBorder="0" allowfullscreen="" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+}
         <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} />
       </article>
     </main>

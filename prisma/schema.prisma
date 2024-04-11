@@ -90,6 +90,7 @@ model Post {
   published  Boolean    @default(false)
   desc      String
   img       String?
+  audio     String?
   views     Int       @default(0)
   catSlug   String?
   cat       Category?  @relation(fields: [catSlug], references: [slug])

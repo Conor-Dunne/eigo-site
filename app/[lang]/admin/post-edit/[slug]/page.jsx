@@ -61,6 +61,7 @@ export default function EditPost({ params }) {
   const [imgSrc, setImgSrc] = useState("https://images.unsplash.com/photo-1707343848723-bd87dea7b118?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   const [slug, setSlug] = useState("asdasd");
   const [desc, setDesc] = useState("Test desc");
+  const [audio, setAudio] = useState("")
   const [vocab, setVocab] = useState([]);
   const [newVocab, setNewVocab] = useState([]);
 
@@ -93,38 +94,35 @@ export default function EditPost({ params }) {
 
   const handleSubmit = async () => {
     try {
-      console.log("edit", slug)
       const postResponse = await fetch(`${baseUrl}/api/posts/${slug}`, {
         method: "PUT",
         body: JSON.stringify({
           img: imgSrc,
+          audio: audio,
           desc: desc,
           slug: slug
         }),
       });
   
-      
-  
-      
-  
-
       const postData = await postResponse.json();
       console.log("Posted post data:", postData);
   
+      // Check if newVocab array is not empty before posting
+      if (newVocab.length > 0) {
+        const vocabPostResponse = await fetch(`${baseUrl}/api/vocabulary`, {
+          method: "POST",
+          body: JSON.stringify(newVocab),
+        });
   
-      const vocabPostResponse = await fetch(`${baseUrl}/api/vocabulary`, {
-        method: "POST",
-        body: JSON.stringify(newVocab),
-      });
+        if (!vocabPostResponse.ok) {
+          throw new Error("Failed to post vocabulary data");
+        }
   
-      if (!vocabPostResponse.ok) {
-        throw new Error("Failed to post vocabulary data");
+        const vocabData = await vocabPostResponse.json();
+        console.log("Posted vocabulary data:", vocabData);
       }
   
-      const vocabData = await vocabPostResponse.json();
-      console.log("Posted vocabulary data:", vocabData);
-      
-      setNewVocab([])
+      setNewVocab([]);
   
       // Handle success or do any necessary actions
     } catch (error) {
@@ -156,6 +154,8 @@ export default function EditPost({ params }) {
             />
             <TextInputBox placeholder={"Add img src url"} onChangFunc={(e) => setImgSrc(e.target.value)} value={imgSrc} />
             {imgSrc ? <Image src={imgSrc} width={100} height={100} alt="Picture of the author" className="rounded-lg" priority={true} /> : <p>no image</p>}
+            <TextInputBox placeholder={"Add audio src url"} onChangFunc={(e) => setAudio(e.target.value)} value={audio} />
+
             <textarea
               // ref={descriptionRef}
               placeholder="Enter Description"
