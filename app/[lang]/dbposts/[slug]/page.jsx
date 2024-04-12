@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ContentWithPopups from "../components/ContentWithPopups";
 import ContentWithPopupsNew from "../components/ContentWithPopupsNew";
 import getData from "../helpers/getData";
 import getFormattedDate from "@/lib/getFormattedDate";
@@ -25,8 +24,17 @@ const SinglePage = async ({ params }) => {
           className="rounded-lg w-full"
           priority={true}
         />
-        {data.audio &&         <iframe className=" rounded-md" src={data.audio} width="100%" height="100" frameBorder="0" allowfullscreen="" allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-}
+        {data.audio && (
+          <iframe
+            className=" rounded-md"
+            src={data.audio}
+            width="100%"
+            height="100"
+            allowfullscreen=""
+            allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy"
+          ></iframe>
+        )}
         <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} />
       </article>
     </main>

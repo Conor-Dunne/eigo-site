@@ -2,11 +2,7 @@ import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import ListItem from "./components/ListItem";
 import Image from "next/image";
-import { promises as fs } from "fs";
-import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg"
-const { PrismaClient } = require('@prisma/client');
-const prisma = new PrismaClient();
-
+import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
 
 export default async function Home({
   params: { lang },
@@ -14,8 +10,6 @@ export default async function Home({
   params: { lang: Locale };
 }) {
   const { page } = await getDictionary(lang);
-
-
 
   const getData = async () => {
     const baseUrl =
@@ -47,17 +41,17 @@ export default async function Home({
         </h1>
         <div className="absolute -z-10 w-full bg-black h-full">
           <Image
-            alt="Mountains"
-            src= {heroImg}
+            alt="Hot air balloons"
+            src={heroImg}
             quality={100}
             fill
             style={{
               objectFit: "cover",
             }}
+            loading="lazy"
           />
         </div>
       </div>
-
       <div>
         <div className="flex justify-center py-10">
           <h2 className=" text-md font-light text-xs md:text-sm text-slate-500 text-center">
@@ -65,7 +59,7 @@ export default async function Home({
           </h2>
         </div>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-3 xl:px-40">
-          { allPosts.map((post: any) => (
+          {allPosts.map((post: any) => (
             <ListItem key={post.id} post={post} />
           ))}
         </section>
@@ -73,4 +67,3 @@ export default async function Home({
     </>
   );
 }
-

@@ -4,7 +4,6 @@ import pluralize from "pluralize";
 import { GB, JP } from "country-flag-icons/react/3x2";
 import Loading from "./loading";
 
-
 export default function WordModal({ word, japanese, searchByEngBoolean }) {
   const [display, setDisplay] = useState(false);
   const [dictionaryData, setDictionaryData] = useState(null);
@@ -22,7 +21,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
   const searchByJpn = `lang=jpn&q="${japanese}"&trans=eng`;
 
   // lock scroll when modal is open
-  document.body.style.overflow = !display ? "unset" : "hidden"
+  document.body.style.overflow = !display ? "unset" : "hidden";
 
   const fetchData = async () => {
     try {
@@ -37,24 +36,17 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
       setDictionaryData(dictionaryData);
       setDictionaryApiLoading(false);
 
+      console.log(dictionaryData)
+
       // Fetch example data
       const exampleResponse = await fetch(
-        
-
-        `https://api.dev.tatoeba.org/unstable/sentences?${searchByEngBoolean ? searchByEng : searchByJpn }&limit=3&sort=words`
+        `https://api.dev.tatoeba.org/unstable/sentences?${
+          searchByEngBoolean ? searchByEng : searchByJpn
+        }&limit=3&sort=words`
       );
       const exampleData = await exampleResponse.json();
 
       const filteredData = [];
-
-      // exampleData.data.map((obj) => {
-      //   console.log(obj);
-      //   if (obj.text.includes(word) || obj.text.includes(singularWord)) {
-      //     filteredData.push(obj);
-      //   }
-      // });
-
-
 
       setExampleData(exampleData.data);
 
@@ -97,21 +89,20 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                   X
                 </div>
               </div>
-             
             </div>
             <div className="text-[10px] bg-slate-200 px-2 border border-rose-600 rounded-md">
-                  <p className="m-0">In beta | ベータばん | β版</p>
-                </div>
+              <p className="m-0">In beta | ベータばん | β版</p>
+            </div>
             <div className="text-center">
-                <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
-                <p>
-                  {dictionaryData &&
-                  dictionaryDataResponse != 404 &&
-                  dictionaryData[0].phonetic
-                    ? dictionaryData[0].phonetic
-                    : null}
-                </p>
-              </div>
+              <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
+              <p>
+                {dictionaryData &&
+                dictionaryDataResponse != 404 &&
+                dictionaryData[0].phonetic
+                  ? dictionaryData[0].phonetic
+                  : null}
+              </p>
+            </div>
             <div>{japanese}</div>
             {dictionaryData && dictionaryDataResponse != 404 ? (
               <div className="flex justify-center">
@@ -137,16 +128,34 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col">
                   <div>
-                  <ul className="list-none p-0">
-        {exampleData.map((obj, index) => ( // Added parentheses and index parameter
-          <li key={index}> {/* Added key prop */}
-            <p className="my-2 font-bold">{ searchByEngBoolean ? obj.text : obj.translations.map( array => array.length > 0 && array[0].text) }</p>
-            <p className="my-2 font-thin">{ searchByEngBoolean ? obj.translations.map( array => array.length > 0 && array[0].text) : obj.text }</p>
-            <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
-          </li>
-        ))}
-      </ul>
-
+                    <ul className="list-none p-0">
+                      {exampleData.map(
+                        (
+                          obj,
+                          index // Added parentheses and index parameter
+                        ) => (
+                          <li key={index}>
+                            {" "}
+                            {/* Added key prop */}
+                            <p className="my-2 font-bold">
+                              {searchByEngBoolean
+                                ? obj.text
+                                : obj.translations.map(
+                                    (array) => array.length > 0 && array[0].text
+                                  )}
+                            </p>
+                            <p className="my-2 font-thin">
+                              {searchByEngBoolean
+                                ? obj.translations.map(
+                                    (array) => array.length > 0 && array[0].text
+                                  )
+                                : obj.text}
+                            </p>
+                            <hr className=" border-0 clear-both block w-full h-[1px] bg-slate-300 my-0" />
+                          </li>
+                        )
+                      )}
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -155,9 +164,11 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                 <div className="flex flex-col items-right">
                   <JP className=" w-[30px] h-4" />
                   <p className="my-2">
-                    {exampleLoading
-                      ? <Loading />
-                      : "データが見つかりませんでした :("}
+                    {exampleLoading ? (
+                      <Loading />
+                    ) : (
+                      "データが見つかりませんでした :("
+                    )}
                   </p>
                 </div>
 
