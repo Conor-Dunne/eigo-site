@@ -42,13 +42,18 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
       const exampleResponse = await fetch(
         `https://api.dev.tatoeba.org/unstable/sentences?${
           searchByEngBoolean ? searchByEng : searchByJpn
-        }&limit=3&sort=words`
+        }&limit=10&sort=text`
       );
       const exampleData = await exampleResponse.json();
 
-      const filteredData = [];
 
-      setExampleData(exampleData.data);
+      const filteredData = exampleData.data.sort((a, b) => a.text.length - b.text.length);
+
+      const noOfExamples = filteredData.length >= 3 ? filteredData.slice(0, 3) : filteredData;
+
+      setExampleData(noOfExamples);
+
+      
 
       setExampleLoading(false);
     } catch (error) {

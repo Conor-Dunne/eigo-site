@@ -27,10 +27,10 @@ const getAllPosts = async () => {
 
 export default function CreatPost() {
 
-  const [title, setTitle] = useState("Test Post");
+  const [title, setTitle] = useState("");
   const [imgSrc, setImgSrc] = useState("https://images.unsplash.com/photo-1707343848723-bd87dea7b118?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
-  const [slug, setSlug] = useState("asdasd");
-  const [desc, setDesc] = useState("Test desc");
+  const [slug, setSlug] = useState("");
+  const [desc, setDesc] = useState("");
   const [vocab, setVocab] = useState([]);
   const [audio, setAudio] = useState(null);
 
@@ -50,6 +50,7 @@ export default function CreatPost() {
 
 
   const handleSubmit = async () => {
+    if (title.length === 0 || desc.length === 0 ) return;
     try {
       const postResponse = await fetch(`${baseUrl}/api/posts`, {
         method: "POST",
@@ -102,26 +103,21 @@ export default function CreatPost() {
           </p>
           <form onSubmit={() => {
             event.preventDefault();
-            // handleSubmit();
           } }>
-            {/* <input
-              // ref={titleRef}
-              placeholder="Enter Title"
-              type="text"
-              className="rounded-md px-4 w-full py-2 my-2 "
-            /> */}
             < TextInputBox placeholder={"Enter Title"} onChangFunc={(e) => {
               setTitle(e.target.value);
               setSlug(slugify(title).toLowerCase())
-            }} />
-            <TextInputBox placeholder={"Add img src url"} onChangFunc={(e) => setImgSrc(e.target.value)} />
+            }}
+            required={true}
+            />
+            <TextInputBox placeholder={"Add img src url"} onChangFunc={(e) => setImgSrc(e.target.value)} required={false} />
             {imgSrc ? <Image src={imgSrc} width={40} height={40} alt="Picture of the author" className="rounded-lg" priority={true} /> : <p>no image</p>}
-            <TextInputBox placeholder={"Add audio url"} onChangFunc={(e) => setAudio(e.target.value)} />
+            <TextInputBox placeholder={"Add audio url"} onChangFunc={(e) => setAudio(e.target.value)} required={false}/>
             <textarea
-              // ref={descriptionRef}
               placeholder="Enter Description"
               className="rounded-md px-4 py-2 w-full my-2 border border-slate-300  h-[300px] "
               onChange={(e) => setDesc(e.target.value)}
+              required
             ></textarea>
              < WordsAndPhrasesInput vocab={vocab} addVocab={handleAddVocab} slug={slug} />
 
@@ -131,12 +127,11 @@ export default function CreatPost() {
         ))}
       </ul>
 
-            <button className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"
+            <button type="submit" className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"
             onClick={handleSubmit}
             >
               Save
             </button>
-        
           </form>
         </div>
       </div>

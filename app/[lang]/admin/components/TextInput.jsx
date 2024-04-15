@@ -1,5 +1,5 @@
 
-export default function TextInputBox({placeholder, onChangFunc, value}) {
+export default function TextInputBox({placeholder, onChangFunc, value, required}) {
 
 
   return (
@@ -9,6 +9,7 @@ export default function TextInputBox({placeholder, onChangFunc, value}) {
       placeholder= {placeholder}
       onChange={onChangFunc}
       value={value}
+      required = {required}
     />
   )
 }

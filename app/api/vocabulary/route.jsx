@@ -1,6 +1,10 @@
 import prisma from "@/prisma";
 import { NextResponse } from "next/server";
 
+
+
+
+
 // ADD VOCABULARY
 export const POST = async (req) => {
   try {
@@ -20,3 +24,7 @@ export const POST = async (req) => {
     return new NextResponse(500, { message: "Something went wrong!" });
   }
 };
+
+
+
+

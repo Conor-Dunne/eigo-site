@@ -20,8 +20,8 @@ export default function WordsAndPhrasesInput({ vocab, addVocab, slug }) {
 
 
     // Clear input fields
-    // setEng("");
-    // setJpn("");
+    setEng("");
+    setJpn("");
     // setPartOfSpeech("");
   };
 
@@ -34,12 +34,14 @@ export default function WordsAndPhrasesInput({ vocab, addVocab, slug }) {
           placeholder="English"
           type="text"
           className="rounded-md px-4 py-2 my-2 border border-slate-300"
+          value={eng}
         />
         <input
           onChange={(e) => setJpn(e.target.value)}
           placeholder="Japanese"
           type="text"
           className="rounded-md px-4 py-2 my-2 border border-slate-300"
+          value={jpn}
         />
         <select
           id="words"
