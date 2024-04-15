@@ -196,7 +196,6 @@ export default function EditPost({ params }) {
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
           ></textarea>
-          <p>{desc}</p>
           <WordsAndPhrasesInput
             vocab={newVocab}
             addVocab={handleAddVocab}
