@@ -110,6 +110,8 @@ export default function CreatPost() {
             }}
             required={true}
             />
+            <p>{title}</p>
+            <p>{slug}</p>
             <TextInputBox placeholder={"Add img src url"} onChangFunc={(e) => setImgSrc(e.target.value)} required={false} />
             {imgSrc ? <Image src={imgSrc} width={40} height={40} alt="Picture of the author" className="rounded-lg" priority={true} /> : <p>no image</p>}
             <TextInputBox placeholder={"Add audio url"} onChangFunc={(e) => setAudio(e.target.value)} required={false}/>
