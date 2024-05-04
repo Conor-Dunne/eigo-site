@@ -16,13 +16,13 @@ export default function ListItem({ post }: Props) {
         href={`/dbposts/${slug}`}
         >
             <div className="flex flex-col gap-3 w-full p-2 mb-3">
-<div className="w-full h-60 overflow-hidden"> {/* Adjust the height as needed */}
+<div className="w-full h-60 overflow-hidden "> {/* Adjust the height as needed */}
                 <Image
                     src={img}
                     width={600}
                     height={600}
                     alt="Picture of the author"
-                    className="object-cover w-full h-full" 
+                    className="object-cover w-full h-full rounded-md " 
                 />
             </div>       
             <div className="flex flex-col gap-2">
