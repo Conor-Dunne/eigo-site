@@ -83,7 +83,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
         >
           <div
             id="modal"
-            className="absolute top-[5%] flex flex-col shadow-lg border-2 w-[90%] max-w-96 border-cyan-950 justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100"
+            className="absolute top-[5%] flex flex-col shadow-lg border-2 w-[90%] max-w-96 border-cyan-950 justify-center items-center gap-2 bg-white p-4 rounded-md opacity-100 z-50"
           >
             <div className="flex flex-col w-full">
               <div className="flex justify-end items-center">
@@ -109,7 +109,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
               </p>
             </div>
             <div>{japanese}</div>
-            {dictionaryData && dictionaryDataResponse != 404 ? (
+            {/* {dictionaryData && dictionaryDataResponse != 404 ? (
               <div className="flex justify-center">
                 {dictionaryData[0].phonetics.find(
                   (phonetic) => phonetic.audio !== ""
@@ -128,7 +128,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
               </div>
             ) : (
               <p>{dictionaryApiLoading ? <Loading /> : null}</p>
-            )}
+            )} */}
             {!exampleLoading && exampleData.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col">
@@ -172,7 +172,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                     {exampleLoading ? (
                       <Loading />
                     ) : (
-                      "データが見つかりませんでした :("
+                      "例文はありません"
                     )}
                   </p>
                 </div>
@@ -180,7 +180,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                 <div className="flex flex-col items-right">
                   <GB className=" w-[30px] h-4" />
                   <p className="my-2">
-                    {exampleLoading ? <Loading /> : "No data found... :("}
+                    {exampleLoading ? <Loading /> : "No example sentences"}
                   </p>
                 </div>
               </div>
