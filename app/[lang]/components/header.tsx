@@ -8,7 +8,7 @@ export default async function Header({ lang }: { lang: Locale }) {
 
 
   return (
-    <header className=' sticky top-0 shadow-md'>
+    <header className=' sticky top-0 shadow-md z-50'>
       <NavMenu lang={lang} navigation={navigation} />
     </header>
   )

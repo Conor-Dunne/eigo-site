@@ -16,7 +16,7 @@ export default function ListItem({ post }: Props) {
         href={`/dbposts/${slug}`}
         >
             <div className="flex flex-col gap-3 w-full p-2 mb-3">
-<div className="w-full h-60 overflow-hidden "> {/* Adjust the height as needed */}
+<div className="w-full h-32 overflow-hidden ">
                 <Image
                     src={img}
                     width={600}

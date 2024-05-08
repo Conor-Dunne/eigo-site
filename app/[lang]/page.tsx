@@ -34,11 +34,11 @@ export default async function Home({
 
   return (
     <>
-      {/* <div
+      <div
         id="hero"
         className="relative flex justify-center items-center text-white w-full h-4 px-6 py-14 mb-1 -z-10 "
       >
-        <h1 className=" text-5xl font-bold md:text-6xl md:my-28 drop-shadow-lg">
+        <h1 className=" text-5xl font-bold md:my-28 drop-shadow-lg">
           {page.home.title} 
         </h1>
         <div className="absolute -z-10 w-full bg-black h-full">
@@ -53,41 +53,39 @@ export default async function Home({
             loading="lazy"
           />
         </div>
-      </div> */}
+      </div>
       <div>
         {/* <div className="flex justify-center py-10">
           <h2 className=" text-md font-light text-xs md:text-sm text-slate-500 text-center">
             {page.home.description}
           </h2>
         </div> */}
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 px-3 py-4 md:py-24  xl:px-40">
+        <section className="grid grid-cols-1 md:grid-cols-4 gap-1 px-3 py-4 xl:px-40">
+          {/* Newest post  */}
           <div className="col-span-1 md:col-span-2 md:row-span-2">
-            {" "}
             <Link
               className=" font-bold text- hover:text-black/70 dark:hover:text-white"
               href={`/dbposts/${allPosts[0].slug}`}
             >
               <div className="flex flex-col gap-3 w-full p-2 mb-3">
-                <div className="flex flex-col gap-2 h-full">
-                  <h2 className=" md:text-6xl">{allPosts[0].title}</h2>
-                  <p className="md:text-2xl font-light text-gray-700 mt-1">
-                    {getFormattedDate(allPosts[0].createdAt)}
-                  </p>
-                </div>
-
-                <div className="w-full h-full overflow-hidden">
-                  {" "}
-                  {/* Adjust the height as needed */}
+                <div className="w-full h-full">
                   <Image
                     src={allPosts[0].img}
-                    width={1000}
-                    height={1000}
+                    width={600}
+                    height={600}
                     alt="Picture of the author"
                     className="object-cover w-full h-full rounded-md"
                   />
                 </div>
+                <div className="flex flex-col gap-2">
+                  <h2 className=" md:text-3xl">{allPosts[0].title}</h2>
+                  <p className="md:text-2xl font-light mt-1">
+                    {getFormattedDate(allPosts[0].createdAt)}
+                  </p>
+                </div>
               </div>
             </Link>
+            {/* All other posts */}
           </div>
           {allPosts.slice(1).map((post: any, index: number) => (
             <ListItem key={index} post={post} />
