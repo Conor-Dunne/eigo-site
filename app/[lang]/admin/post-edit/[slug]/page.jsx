@@ -77,6 +77,7 @@ export default function EditPost({ params }) {
         setSlug(data.slug);
         setDesc(data.desc);
         setVocab(data.keyWords);
+        setAudio(data.audio)
       })
       .catch((err) => {
         console.log(err);
