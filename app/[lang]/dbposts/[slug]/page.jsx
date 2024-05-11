@@ -9,7 +9,6 @@ const SinglePage = async ({ params }) => {
   const data = await getData(slug);
   const formattedDate = getFormattedDate(data.createdAt);
 
-  console.log(data.audio)
 
   return (
     <main className="prose prose-slate text-lg mx-auto mt-10 md:mt-20 px-6 pb-28 min-w-[260px]">
@@ -26,7 +25,7 @@ const SinglePage = async ({ params }) => {
           className="rounded-lg w-full"
           priority={true}
         />
-        {/* {data.audio && (
+        {data.audio && (
           <iframe
             className=" rounded-md"
             src={data.audio}
@@ -36,7 +35,7 @@ const SinglePage = async ({ params }) => {
             allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>
-        )} */}
+        )}
         <ContentWithPopupsNew content={data.desc} keyWords={data.keyWords} />
       </article>
     </main>
