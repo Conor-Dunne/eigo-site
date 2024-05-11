@@ -25,9 +25,9 @@ const SinglePage = async ({ params }) => {
           className="rounded-lg w-full"
           priority={true}
         />
-        {data.audio && (
+         {data.audio && (
           <iframe
-            className=" rounded-md"
+            className=" rounded-md sticky top-20"
             src={data.audio}
             width="100%"
             height="100"

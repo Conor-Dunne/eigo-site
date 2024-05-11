@@ -68,6 +68,20 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
     }
   }, [word, japanese, display]);
 
+
+  function speak(input) {
+    const synth = window.speechSynthesis;
+    if (!synth) {
+      console.error("no tts");
+      return;
+    }
+
+    let utterance = new SpeechSynthesisUtterance(input);
+
+    console.log(utterance)
+    synth.speak(utterance);
+  }
+
   return (
     <>
       <span
@@ -75,6 +89,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
         onClick={() => setDisplay(true)}
       >
         {word}
+       
       </span>
       {display && (
         <div
@@ -100,6 +115,9 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
             </div>
             <div className="text-center">
               <h2 className="m-0">{pluralize.singular(cleanWord)}</h2>
+              <button
+        onClick={() => speak(cleanWord)}
+        >&#x1F508;</button>
               <p>
                 {dictionaryData &&
                 dictionaryDataResponse != 404 &&
@@ -142,13 +160,18 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                           <li key={index}>
                             {" "}
                             {/* Added key prop */}
-                            <p className="my-2 font-bold">
+                          <div className="flex">
+                          <p className="my-2 font-bold">
                               {searchByEngBoolean
                                 ? obj.text
                                 : obj.translations.map(
                                     (array) => array.length > 0 && array[0].text
                                   )}
                             </p>
+                            <button
+        onClick={() => speak(obj.text)}
+        >&#x1F508;</button>
+                          </div>
                             <p className="my-2 font-thin">
                               {searchByEngBoolean
                                 ? obj.translations.map(
