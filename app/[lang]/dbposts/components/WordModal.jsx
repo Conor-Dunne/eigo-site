@@ -160,7 +160,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                           <li key={index}>
                             {" "}
                             {/* Added key prop */}
-                          <div className="flex">
+                          <div className="flex justify-between">
                           <p className="my-2 font-bold">
                               {searchByEngBoolean
                                 ? obj.text
