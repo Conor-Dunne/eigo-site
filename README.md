@@ -1,3 +1,16 @@
+## Eigo-Site
+
+Full-stack web app built with NextJS , Typescript , Prisma/MongoDB , and Tailwind. An
+English reading web app, aimed specifically at Japanese students, with internationalization
+and clickable vocabulary to reveal translations and example sentences. It also includes CMS
+for CRUD operations on new posts.
+
+
+
+[Live Demo](https://conor-dunne.github.io/React-CV-Application/) :point_left:
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
