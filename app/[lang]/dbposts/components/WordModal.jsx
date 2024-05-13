@@ -168,9 +168,9 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                                     (array) => array.length > 0 && array[0].text
                                   )}
                             </p>
-                            <button
-        // onClick={() => speak(obj.text)}
-        >&#x1F508;</button>
+                            {/* <button
+        onClick={() => speak(obj.text)}
+        >&#x1F508;</button> */}
                           </div>
                             <p className="my-2 font-thin">
                               {searchByEngBoolean
