@@ -77,8 +77,8 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
     }
 
     let utterance = new SpeechSynthesisUtterance(input);
+    utterance.lang = "en-GB";
 
-    console.log(utterance)
     synth.speak(utterance);
   }
 
@@ -169,7 +169,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                                   )}
                             </p>
                             <button
-        onClick={() => speak(obj.text)}
+        // onClick={() => speak(obj.text)}
         >&#x1F508;</button>
                           </div>
                             <p className="my-2 font-thin">
