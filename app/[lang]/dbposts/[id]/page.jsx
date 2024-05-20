@@ -4,9 +4,13 @@ import getData from "../helpers/getData";
 import getFormattedDate from "@/lib/getFormattedDate";
 
 const SinglePage = async ({ params }) => {
-  const { slug } = params;
 
-  const data = await getData(slug);
+  const { id } = params;
+
+  
+
+
+  const data = await getData(id);
   const formattedDate = getFormattedDate(data.createdAt);
 
 

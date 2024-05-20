@@ -65,7 +65,7 @@ export default async function Home({
           <div className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2">
             <Link
               className=" font-bold text- hover:text-black/70 dark:hover:text-white"
-              href={`/dbposts/${allPosts[0].slug}`}
+              href={`/dbposts/${allPosts[0].id}`}
             >
               <div className="flex flex-col gap-3 w-full p-2 mb-3">
                 <div className="w-full h-full">

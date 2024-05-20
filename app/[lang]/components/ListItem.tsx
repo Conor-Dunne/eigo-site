@@ -8,12 +8,14 @@ type Props = {
 
 export default function ListItem({ post }: Props) {
     const { id, slug, createdAt,title, img } = post
+
     const formattedDate = getFormattedDate(createdAt)
+
 
     return (
         <Link 
         className=" font-bold text- hover:text-black/70 dark:hover:text-white" 
-        href={`/dbposts/${slug}`}
+        href={`/dbposts/${id}`}
         >
             <div className="flex flex-col gap-3 w-full p-2 mb-3">
 <div className="w-full h-32 overflow-hidden ">

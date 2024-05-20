@@ -3,11 +3,12 @@ import { NextResponse } from "next/server";
 
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
-    const { slug } = params;
+    const { id } = params;
+
   
     try {
       const post = await prisma.post.update({
-        where: { slug },
+        where: { id },
         data: { views: { increment: 1 } },
         include: { keyWords: true },
       });

@@ -1,11 +1,11 @@
-const getData = async (slug) => {
+const getData = async (id) => {
 
     const baseUrl = process.env.NODE_ENV === 'production'
       ? 'https://eigo-site.vercel.app' 
       : 'http://localhost:3000';
   
   
-    const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
+    const res = await fetch(`${baseUrl}/api/posts/${id}`, {
       cache: "no-store",
     });
   
