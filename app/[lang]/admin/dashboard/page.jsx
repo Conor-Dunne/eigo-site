@@ -32,7 +32,7 @@ export default async function Dashboard() {
               <h2>{post.title}</h2>
 
               <Link
-                href={`/admin/post-edit/${post.slug}`}
+                href={`/admin/post-edit/${post.id}`}
                 className=" bg-blue-500 p-2 rounded-lg"
               >
                 Edit

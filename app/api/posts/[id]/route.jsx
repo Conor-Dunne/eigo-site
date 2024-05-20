@@ -27,10 +27,10 @@ export const GET = async (req, { params }) => {
 
   export const PUT = async (req, res) => {
     try {
-      const { img, desc, slug, audio} = await req.json(); 
+      const { id, title, img, desc, audio} = await req.json(); 
       const post = await prisma.post.update({
-        data: { img, desc, audio },
-        where: { slug },
+        data: {title, img, desc, audio },
+        where: { id },
       });
   
       return new NextResponse(JSON.stringify(post, { status: 200 }));

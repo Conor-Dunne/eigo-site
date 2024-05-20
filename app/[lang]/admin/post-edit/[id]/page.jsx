@@ -46,8 +46,8 @@ const deleteVocab = async (id) => {
   return (await res).json();
 };
 
-const getBlogBySlug = async (slug) => {
-  const res = await fetch(`${baseUrl}/api/posts/${slug}`, {
+const getBlogById = async (id) => {
+  const res = await fetch(`${baseUrl}/api/posts/${id}`, {
     cache: "no-store",
   });
 
@@ -70,7 +70,7 @@ export default function EditPost({ params }) {
   const [newVocab, setNewVocab] = useState([]);
 
   useEffect(() => {
-    getBlogBySlug(params.slug)
+    getBlogById(params.id)
       .then((data) => {
         setTitle(data.title);
         setImgSrc(data.img);
@@ -82,7 +82,8 @@ export default function EditPost({ params }) {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [])
+
 
   const handleAddVocab = (obj) => {
     setNewVocab(obj);
@@ -107,9 +108,11 @@ export default function EditPost({ params }) {
 
   const handleSubmit = async () => {
     try {
-      const postResponse = await fetch(`${baseUrl}/api/posts/${slug}`, {
+      const postResponse = await fetch(`${baseUrl}/api/posts/${params.id}`, {
         method: "PUT",
         body: JSON.stringify({
+          id: params.id,
+          title: title,
           img: imgSrc,
           audio: audio,
           desc: desc,
