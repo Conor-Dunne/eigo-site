@@ -35,7 +35,7 @@ const SinglePage = async ({ params }) => {
             src={data.audio}
             width="100%"
             height="100"
-            allowfullscreen=""
+            allowFullScreen
             allow="clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
           ></iframe>

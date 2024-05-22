@@ -7,13 +7,14 @@ export default async function ContentWithPopupsNew({ content, keyWords }) {
 let replacedContent = content
 
 
-keyWords.forEach(word => {
+keyWords.forEach((word, index) => {
 
   let regex = new RegExp(`\\b(${word.English}\\b)`)
 
+
     replacedContent = reactStringReplace(replacedContent, regex, (match, i) => (
         <WordModal
-            key={i}
+            key={`${word.id}-${i}`}
             word={word.English}
             japanese={word.Japanese}
             searchByEngBoolean={word.searchByEng}
