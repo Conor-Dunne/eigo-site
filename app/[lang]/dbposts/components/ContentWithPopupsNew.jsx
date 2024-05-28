@@ -21,6 +21,8 @@ keyWords.forEach((word, index) => {
           />
       ))
 })
+
+
   return <article className="leading-loose">{replacedContent}</article>;
 }
 
