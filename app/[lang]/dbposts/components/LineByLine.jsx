@@ -25,9 +25,8 @@ function speak(input) {
   return (
     <>
     {lineByLine.map((line, index) => (
-        <div className="flex gap-4 border-b border-slate-600"  key={index}>
+        <div className="flex gap-4 border-b border-slate-600 text-base md:text-lg"  key={index}>
               <button
-              className=" text-2xl"
         onClick={() => speak(line)}
         >&#x1F508;</button>
             <p>{line + "."}</p>

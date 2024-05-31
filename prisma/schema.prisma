@@ -89,6 +89,7 @@ model Post {
   title     String
   published  Boolean    @default(false)
   desc      String
+  desc_jp   String?
   img       String?
   audio     String?
   views     Int       @default(0)
