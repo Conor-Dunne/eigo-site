@@ -6,7 +6,7 @@ export default function LineByLine({ data }) {
 
 
 const lineByLine = articleData.desc.split(".");
-const jp = articleData.desc_jp.split("。");
+const jp = articleData.desc_jp?.split("。");
 
 
 function speak(input) {
@@ -34,7 +34,7 @@ function speak(input) {
             </div>
             <div className=" flex-col">
             <p>{line + "."}</p>
-            <p>{jp[index] + "。"}</p>
+            <p>{articleData.desc_jp && jp[index] + "。"}</p>
             </div>
         </div>
     ))}
