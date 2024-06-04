@@ -1,19 +1,16 @@
 "use client";
 
 import React, { useState } from "react";
-import Article from "./Article"
-import LineByLine from "./LineByLine"
+import Article from "./Article";
+import LineByLine from "./LineByLine";
 import ArticleJP from "./ArticleJP";
 
-
-export default function TabsBar( data ) {
-
-  console.log(data)
+export default function TabsBar(data) {
+  console.log(data);
 
   const tabs = ["article", "lineByLine", "translation"];
 
-  const [currentView, setCurrentView] = useState("article")
-
+  const [currentView, setCurrentView] = useState("article");
 
   return (
     <div>
@@ -22,7 +19,11 @@ export default function TabsBar( data ) {
           <li
             key={index}
             onClick={() => setCurrentView(tab)}
-            className= {currentView === tab ? " bg-blue-900 text-white font-semibold p-2 rounded cursor-pointer underline" : " bg-blue-400 text-white p-2 rounded cursor-pointer"}
+            className={
+              currentView === tab
+                ? " bg-blue-900 text-white p-2 rounded cursor-pointer underline underline-offset-4 text-base"
+                : " bg-blue-400 text-white p-2 rounded cursor-pointer text-base"
+            }
           >
             {data.tabNames[`${tab}`]}
           </li>
@@ -30,6 +31,7 @@ export default function TabsBar( data ) {
       </ul>
       {currentView === "article" && <Article data={data} />}
       {currentView === "lineByLine" && <LineByLine data={data} />}
-      {currentView === "translation" && <ArticleJP data={data} />}    </div>
+      {currentView === "translation" && <ArticleJP data={data} />}{" "}
+    </div>
   );
 }
