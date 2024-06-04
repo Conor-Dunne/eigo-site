@@ -5,11 +5,15 @@ import Article from "./Article"
 import LineByLine from "./LineByLine"
 import ArticleJP from "./ArticleJP";
 
+
 export default function TabsBar( data ) {
 
-  const tabs = ["Article", "Line-by-Line", "Translation"];
+  console.log(data)
 
-  const [currentView, setCurrentView] = useState("Article")
+  const tabs = ["article", "lineByLine", "translation"];
+
+  const [currentView, setCurrentView] = useState("article")
+
 
   return (
     <div>
@@ -20,12 +24,12 @@ export default function TabsBar( data ) {
             onClick={() => setCurrentView(tab)}
             className= {currentView === tab ? " bg-blue-900 text-white font-semibold p-2 rounded cursor-pointer underline" : " bg-blue-400 text-white p-2 rounded cursor-pointer"}
           >
-            {tab}
+            {data.tabNames[`${tab}`]}
           </li>
         ))}
       </ul>
-      {currentView === "Article" && <Article data={data} />}
-      {currentView === "Line-by-Line" && <LineByLine data={data} />}
-      {currentView === "Translation" && <ArticleJP data={data} />}    </div>
+      {currentView === "article" && <Article data={data} />}
+      {currentView === "lineByLine" && <LineByLine data={data} />}
+      {currentView === "translation" && <ArticleJP data={data} />}    </div>
   );
 }
