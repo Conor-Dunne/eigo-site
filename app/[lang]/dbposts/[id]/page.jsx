@@ -3,6 +3,18 @@ import getData from "../helpers/getData";
 import getFormattedDate from "@/lib/getFormattedDate";
 import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
+import { Translate } from '@google-cloud/translate/build/src/v2';
+
+
+const translate = new Translate({
+  keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
+});
+
+const translateWord = async (word) => {
+  const [translation] = await translate.translate(word, { from: 'en', to: 'ja' });
+  return translation;
+};
+
 
 
 const SinglePage = async ({ params }) => {
@@ -10,6 +22,14 @@ const SinglePage = async ({ params }) => {
   const { page } = await getDictionary(lang)
   const data = await getData(id);
   const formattedDate = getFormattedDate(data.createdAt);
+
+
+  // try {
+  //   const translation = await translateWord("hello there, my name is google");
+  //   console.log("Translation: ", translation);
+  // } catch (error) {
+  //   console.error("Error translating word: ", error);
+  // }
 
 
 
