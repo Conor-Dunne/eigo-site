@@ -6,7 +6,6 @@ import LineByLine from "./LineByLine";
 import ArticleJP from "./ArticleJP";
 
 export default function TabsBar(data) {
-  console.log(data);
 
   const tabs = ["article", "lineByLine", "translation"];
 
