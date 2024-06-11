@@ -65,11 +65,11 @@ export default function EditPost({ params }) {
   );
   const [slug, setSlug] = useState("asdasd");
   const [desc, setDesc] = useState("Test desc");
+  const [descJP, setDescJP] = useState("翻訳");
   const [audio, setAudio] = useState("");
   const [vocab, setVocab] = useState([]);
   const [newVocab, setNewVocab] = useState([]);
-  const [published, setPublished] = useState(false)
-
+  const [published, setPublished] = useState(false);
 
   useEffect(() => {
     getBlogById(params.id)
@@ -81,12 +81,12 @@ export default function EditPost({ params }) {
         setVocab(data.keyWords);
         setAudio(data.audio);
         setPublished(data.published);
+        setDescJP(data.desc_jp);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [])
-
+  }, []);
 
   const handleAddVocab = (obj) => {
     setNewVocab(obj);
@@ -104,14 +104,13 @@ export default function EditPost({ params }) {
   };
 
   const handleDeleteNewVocab = async (eng) => {
-      setNewVocab(newVocab.filter((item) => item.English !== eng));
-      console.log(newVocab)
+    setNewVocab(newVocab.filter((item) => item.English !== eng));
+    console.log(newVocab);
   };
 
   const handlePublished = () => {
     setPublished(!published);
-  }
-
+  };
 
   const handleSubmit = async () => {
     try {
@@ -124,6 +123,7 @@ export default function EditPost({ params }) {
           img: imgSrc,
           audio: audio,
           desc: desc,
+          desc_jp: descJP,
           slug: slug,
         }),
       });
@@ -156,7 +156,6 @@ export default function EditPost({ params }) {
       // Handle error appropriately
     }
   };
-
 
   return (
     <div className="w-full m-auto flex my-4">
@@ -209,6 +208,14 @@ export default function EditPost({ params }) {
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
           ></textarea>
+          <textarea
+            placeholder="翻訳"
+            className="rounded-md px-4 py-2 w-full my-2 border border-slate-300  h-[300px] "
+            onChange={(e) => setDescJP(e.target.value)}
+            value={descJP}
+            required
+          ></textarea>
+          <p>{descJP}</p>
           <WordsAndPhrasesInput
             vocab={newVocab}
             addVocab={handleAddVocab}
@@ -255,14 +262,14 @@ export default function EditPost({ params }) {
             <p>Loading vocabulary...</p>
           )}
 
-<div className="my-5">
-     <button 
-    className="font-semibold text-white px-4 py-2 shadow-xl bg-green-700 rounded-lg m-auto hover:bg-slate-100 w-full"
-     onClick={handlePublished}>
-      {published === true ? 'Unpublish' : 'Publish'}
-    </button>
-     </div>
-
+          <div className="my-5">
+            <button
+              className="font-semibold text-white px-4 py-2 shadow-xl bg-green-700 rounded-lg m-auto hover:bg-slate-100 w-full"
+              onClick={handlePublished}
+            >
+              {published === true ? "Unpublish" : "Publish"}
+            </button>
+          </div>
 
           <button
             className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"

@@ -27,9 +27,9 @@ export const GET = async (req, { params }) => {
 
   export const PUT = async (req, res) => {
     try {
-      const { id, title, img, desc, audio} = await req.json(); 
+      const { id, title, img, desc, audio, desc_jp, published} = await req.json(); 
       const post = await prisma.post.update({
-        data: {title, img, desc, audio },
+        data: {title, img, desc, desc_jp, audio, published },
         where: { id },
       });
   
