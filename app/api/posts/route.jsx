@@ -8,6 +8,7 @@ export const GET = async () => {
         orderBy: {
           createdAt: 'desc' ,
         },
+  
       });
   
       return new NextResponse(JSON.stringify(categories, { status: 200 }));

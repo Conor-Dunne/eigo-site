@@ -68,6 +68,8 @@ export default function EditPost({ params }) {
   const [audio, setAudio] = useState("");
   const [vocab, setVocab] = useState([]);
   const [newVocab, setNewVocab] = useState([]);
+  const [published, setPublished] = useState(false)
+
 
   useEffect(() => {
     getBlogById(params.id)
@@ -77,7 +79,8 @@ export default function EditPost({ params }) {
         setSlug(data.slug);
         setDesc(data.desc);
         setVocab(data.keyWords);
-        setAudio(data.audio)
+        setAudio(data.audio);
+        setPublished(data.published);
       })
       .catch((err) => {
         console.log(err);
@@ -105,6 +108,10 @@ export default function EditPost({ params }) {
       console.log(newVocab)
   };
 
+  const handlePublished = () => {
+    setPublished(!published);
+  }
+
 
   const handleSubmit = async () => {
     try {
@@ -113,6 +120,7 @@ export default function EditPost({ params }) {
         body: JSON.stringify({
           id: params.id,
           title: title,
+          published: published,
           img: imgSrc,
           audio: audio,
           desc: desc,
@@ -148,6 +156,7 @@ export default function EditPost({ params }) {
       // Handle error appropriately
     }
   };
+
 
   return (
     <div className="w-full m-auto flex my-4">
@@ -245,6 +254,15 @@ export default function EditPost({ params }) {
           ) : (
             <p>Loading vocabulary...</p>
           )}
+
+<div className="my-5">
+     <button 
+    className="font-semibold text-white px-4 py-2 shadow-xl bg-green-700 rounded-lg m-auto hover:bg-slate-100 w-full"
+     onClick={handlePublished}>
+      {published === true ? 'Unpublish' : 'Publish'}
+    </button>
+     </div>
+
 
           <button
             className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"

@@ -22,6 +22,7 @@ export default async function Dashboard() {
 
   const posts = await getData();
 
+
   return (
     <div className="flex flex-col items-center gap-4 pt-7 mx-3">
       <h1 className=" font-bold text-4xl underline p-6">DASHBOARD</h1>
@@ -29,6 +30,7 @@ export default async function Dashboard() {
         {posts.map((post) => (
           <li key={post.id}>
             <div className="flex gap-4 justify-between items-center ">
+
               <h2>{post.title}</h2>
 
               <Link
@@ -37,6 +39,7 @@ export default async function Dashboard() {
               >
                 Edit
               </Link>
+              <div>{post.published === true ? "true" : "false"}</div>
             </div>
           </li>
         ))}
