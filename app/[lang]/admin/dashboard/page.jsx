@@ -33,13 +33,15 @@ export default async function Dashboard() {
 
               <h2>{post.title}</h2>
 
+              <div className="flex items-center gap-2">
               <Link
                 href={`/admin/post-edit/${post.id}`}
                 className=" bg-blue-500 p-2 rounded-lg"
               >
                 Edit
               </Link>
-              <div>{post.published === true ? "true" : "false"}</div>
+              <div className=" bg-slate-500 p-2 rounded-lg">{post.published === true ? "published" : "unpublished"}</div>
+              </div>
             </div>
           </li>
         ))}
