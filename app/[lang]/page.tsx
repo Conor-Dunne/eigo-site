@@ -27,7 +27,10 @@ export default async function Home({
       throw new Error("Failed");
     }
 
-    return res.json();
+    const allPosts = await res.json();
+    
+    // Filter out unpublished posts
+    return allPosts.filter((post: any) => post.published);
   };
 
   const allPosts = await getData();
