@@ -4,10 +4,11 @@ import React, { useState } from "react";
 import Article from "./Article";
 import LineByLine from "./LineByLine";
 import ArticleJP from "./ArticleJP";
+import Quiz from "./Quiz";
 
 export default function TabsBar(data) {
 
-  const tabs = ["article", "lineByLine", "translation"];
+  const tabs = ["article", "lineByLine", "translation", "quiz"];
 
   const [currentView, setCurrentView] = useState("article");
 
@@ -31,6 +32,7 @@ export default function TabsBar(data) {
       {currentView === "article" && <Article data={data} />}
       {currentView === "lineByLine" && <LineByLine data={data} />}
       {currentView === "translation" && <ArticleJP data={data} />}{" "}
+      {currentView === "quiz" && <Quiz data={data} />}{" "}
     </div>
   );
 }

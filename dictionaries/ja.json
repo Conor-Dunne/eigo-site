@@ -18,7 +18,8 @@
       "tabsBarNames": {
         "article": "記事",
         "lineByLine": "一行一行",
-        "translation": "翻訳"
+        "translation": "翻訳",
+        "quiz": "クイズ"
       }
     }
   }

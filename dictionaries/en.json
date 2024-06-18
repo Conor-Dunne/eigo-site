@@ -18,7 +18,8 @@
       "tabsBarNames": {
         "article": "Article",
         "lineByLine": "Line-By-Line",
-        "translation": "Translation"
+        "translation": "Translation",
+        "quiz": "Quiz"
       }
     }
   }
