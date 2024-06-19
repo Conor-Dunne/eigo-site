@@ -54,16 +54,16 @@ export default function QuizQuestion({ line }) {
   }
 
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-2 text-sm md:text-base">
       <div className="flex gap-3">
         <div className="flex items-center">
           <button onClick={() => speak(line)}>&#x1F508;</button>
         </div>
-        <p className="my-2">{clozeSentence.clozeSentence}</p>
+        <p className="my-2">{clozeSentence.clozeSentence + "."}</p>
       </div>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-4">
         <input
-          className="border border-black px-1 py-1"
+          className="border border-black px-1 py-1 w-full md:w-2/5"
           type="text"
           onChange={(e) => setAnswer(e.target.value)}
         />

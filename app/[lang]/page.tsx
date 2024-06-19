@@ -5,6 +5,7 @@ import Image from "next/image";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
 import Link from "next/link";
 import getFormattedDate from "@/lib/getFormattedDate";
+import { FaHeadphonesAlt } from "react-icons/fa";
 
 export default async function Home({
   params: { lang },
@@ -28,12 +29,14 @@ export default async function Home({
     }
 
     const allPosts = await res.json();
-    
+
     // Filter out unpublished posts
     return allPosts.filter((post: any) => post.published);
   };
 
   const allPosts = await getData();
+
+  console.log(allPosts);
 
   return (
     <>
@@ -42,7 +45,7 @@ export default async function Home({
         className="relative flex justify-center items-center text-white w-full h-4 px-6 py-14 mb-1 -z-10 "
       >
         <h1 className=" text-5xl font-bold md:my-28 drop-shadow-lg">
-          {page.home.title} 
+          {page.home.title}
         </h1>
         <div className="absolute -z-10 w-full bg-black h-full">
           <Image
@@ -71,7 +74,7 @@ export default async function Home({
               href={`/dbposts/${allPosts[0].id}`}
             >
               <div className="flex flex-col gap-3 w-full p-2 mb-3">
-                <div className="w-full h-full">
+                <div className="w-full h-full relative">
                   <Image
                     src={allPosts[0].img}
                     width={600}
@@ -79,6 +82,9 @@ export default async function Home({
                     alt="Picture of the author"
                     className="object-cover w-full h-full rounded-md"
                   />
+                  {allPosts[0].audio && (
+                    <FaHeadphonesAlt className="text-white bg-slate-800 text-6xl rounded-sm p-3 absolute bottom-0 right-0" />
+                  )}
                 </div>
                 <div className="flex flex-col gap-2">
                   <h2 className=" md:text-3xl">{allPosts[0].title}</h2>

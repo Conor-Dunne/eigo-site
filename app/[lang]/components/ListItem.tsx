@@ -1,13 +1,15 @@
 import Link from "next/link"
 import Image from "next/image"
 import getFormattedDate from "@/lib/getFormattedDate"
+import { FaHeadphonesAlt } from "react-icons/fa";
+
 
 type Props = {
     post: BlogPost
 }
 
 export default function ListItem({ post }: Props) {
-    const { id, slug, createdAt,title, img } = post
+    const { id, slug, createdAt,title, img , audio } = post
 
     const formattedDate = getFormattedDate(createdAt)
 
@@ -18,7 +20,7 @@ export default function ListItem({ post }: Props) {
         href={`/dbposts/${id}`}
         >
             <div className="flex flex-col gap-3 w-full p-2 mb-3">
-<div className="w-full h-32 overflow-hidden ">
+<div className="w-full h-32 overflow-hidden relative ">
                 <Image
                     src={img}
                     width={600}
@@ -26,6 +28,7 @@ export default function ListItem({ post }: Props) {
                     alt="Picture of the author"
                     className="object-cover w-full h-full rounded-md " 
                 />
+                {audio && <FaHeadphonesAlt className="text-white bg-slate-800 text-5xl md:text-4xl rounded-sm p-3 md:p-2 absolute bottom-0 right-0" />}
             </div>       
             <div className="flex flex-col gap-2">
             <h2>{title}</h2> 
