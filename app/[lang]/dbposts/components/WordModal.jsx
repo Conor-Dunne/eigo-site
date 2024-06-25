@@ -93,7 +93,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
       {display && (
         <div
           id="overlay"
-          className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-400 bg-opacity-50 overflow-scroll py-2"
+          className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center bg-slate-400 bg-opacity-50 overflow-scroll py-2 z-10"
         >
           <div
             id="modal"

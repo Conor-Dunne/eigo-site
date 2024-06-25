@@ -5,4 +5,6 @@ type BlogPost = {
     slug: string,
     img: string,
     audio: string,
+    desc: string,
+    desc_jp: string,
 }

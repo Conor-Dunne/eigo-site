@@ -5,6 +5,7 @@ import Image from "next/image";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
 import Link from "next/link";
 import getFormattedDate from "@/lib/getFormattedDate";
+import getExerpt from "@/lib/getExerpt";
 import { FaHeadphonesAlt } from "react-icons/fa";
 
 export default async function Home({
@@ -13,6 +14,7 @@ export default async function Home({
   params: { lang: Locale };
 }) {
   const { page } = await getDictionary(lang);
+
 
   const getData = async () => {
     const baseUrl =
@@ -87,6 +89,7 @@ export default async function Home({
                 </div>
                 <div className="flex flex-col gap-2">
                   <h2 className=" md:text-3xl">{allPosts[0].title}</h2>
+                  <p className="text-sm font-light text-gray-700 mt-1">{getExerpt(allPosts[0], lang)}</p>
                   <p className="md:text-2xl font-light mt-1">
                     {getFormattedDate(allPosts[0].createdAt)}
                   </p>
@@ -96,7 +99,7 @@ export default async function Home({
             {/* All other posts */}
           </div>
           {allPosts.slice(1).map((post: any, index: number) => (
-            <ListItem key={index} post={post} />
+            <ListItem key={index} post={post} lang={lang}  />
           ))}
         </section>
       </div>

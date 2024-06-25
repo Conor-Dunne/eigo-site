@@ -1,15 +1,20 @@
 import Link from "next/link"
 import Image from "next/image"
 import getFormattedDate from "@/lib/getFormattedDate"
+import getExerpt from "@/lib/getExerpt";
 import { FaHeadphonesAlt } from "react-icons/fa";
+import { Locale } from "@/i18n.config";
+
 
 
 type Props = {
-    post: BlogPost
+    post: BlogPost;
+    lang: Locale;
 }
 
-export default function ListItem({ post }: Props) {
-    const { id, slug, createdAt,title, img , audio } = post
+export default function ListItem({ post, lang }: Props) {
+    const { id, slug, createdAt,title, img , audio, } = post
+
 
     const formattedDate = getFormattedDate(createdAt)
 
@@ -32,6 +37,7 @@ export default function ListItem({ post }: Props) {
             </div>       
             <div className="flex flex-col gap-2">
             <h2>{title}</h2> 
+            <p className="text-sm font-light text-gray-700 mt-1">{getExerpt(post, lang)}</p>
             <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p>
             </div>
                 </div>    
