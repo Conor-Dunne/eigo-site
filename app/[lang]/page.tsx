@@ -36,7 +36,6 @@ export default async function Home({
 
   const allPosts = await getData();
 
-  console.log(allPosts);
 
   return (
     <>

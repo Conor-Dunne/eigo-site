@@ -20,6 +20,8 @@ export default function LineByLine({ data }) {
   return (
     <>
       {lineByLine.map((line, index) => (
+
+line === "" ? null : 
         <div
           className="flex gap-4 border-b border-slate-600 text-base md:text-lg"
           key={index}

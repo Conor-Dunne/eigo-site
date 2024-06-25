@@ -12,7 +12,7 @@ export default function QuizQuestion({ line }) {
   useEffect(() => {
     function generateClozeSentence(sentence) {
       let trimmedSentence = sentence.trim();
-      let sentenceArray = trimmedSentence.split(" ");
+      let sentenceArray = trimmedSentence.match(/\w+(?:'\w+)*/g)
       let cloze = sentenceArray[Math.floor(Math.random() * sentenceArray.length)];
       
       // Create a regular expression to match the whole word, considering punctuation
@@ -22,10 +22,10 @@ export default function QuizQuestion({ line }) {
       let clozeSentence = sentence.replace(clozeRegex, "______");
       
       // Handle cases where the cloze word has punctuation attached
-      if (clozeSentence === sentence) {
-        clozeRegex = new RegExp(`\\b${cloze}\\b[.,!?;:]?`, 'g');
-        clozeSentence = sentence.replace(clozeRegex, "______");
-      }
+      // if (clozeSentence === sentence) {
+      //   clozeRegex = new RegExp(`\\b${cloze}\\b[.,!?;:]?`, 'g');
+      //   clozeSentence = sentence.replace(clozeRegex, "______");
+      // }
       
       return { clozeSentence, cloze };
     }
@@ -47,9 +47,7 @@ export default function QuizQuestion({ line }) {
   }
 
   function checkAnswer(input, cloze) {
-    console.log("Input:", input);
-    console.log("Expected Cloze:", cloze);
-    console.log("Comparison Result:", input.trim().localeCompare(cloze, undefined, { sensitivity: 'base' }));
+    
     return input.trim().localeCompare(cloze, undefined, { sensitivity: 'base' }) === 0;
   }
 

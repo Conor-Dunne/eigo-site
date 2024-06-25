@@ -36,7 +36,6 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
       setDictionaryData(dictionaryData);
       setDictionaryApiLoading(false);
 
-      console.log(dictionaryData)
 
       // Fetch example data
       const exampleResponse = await fetch(
