@@ -37,8 +37,8 @@ export default function ListItem({ post, lang }: Props) {
             </div>       
             <div className="flex flex-col gap-2">
             <h2>{title}</h2> 
-            <p className="text-sm font-light text-gray-700 mt-1">{getExerpt(post, lang)}</p>
-            <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p>
+            <p className="text-sm font-light text-gray-500 mt-1">{getExerpt(post, lang)}</p>
+            {/* <p className="text-sm font-light text-gray-700 mt-1">{formattedDate}</p> */}
             </div>
                 </div>    
             </Link>

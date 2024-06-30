@@ -89,10 +89,10 @@ export default async function Home({
                 </div>
                 <div className="flex flex-col gap-2">
                   <h2 className=" md:text-3xl">{allPosts[0].title}</h2>
-                  <p className="text-sm font-light text-gray-700 mt-1">{getExerpt(allPosts[0], lang)}</p>
-                  <p className="md:text-2xl font-light mt-1">
+                  <p className="text-sm font-light text-gray-500 mt-1">{getExerpt(allPosts[0], lang)}</p>
+                  {/* <p className="md:text-2xl font-light mt-1">
                     {getFormattedDate(allPosts[0].createdAt)}
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </Link>
