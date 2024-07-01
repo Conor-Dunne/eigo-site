@@ -70,6 +70,8 @@ export default function EditPost({ params }) {
   const [vocab, setVocab] = useState([]);
   const [newVocab, setNewVocab] = useState([]);
   const [published, setPublished] = useState(false);
+  const [level, setLevel] = useState(0);
+
 
   useEffect(() => {
     getBlogById(params.id)
@@ -82,6 +84,7 @@ export default function EditPost({ params }) {
         setAudio(data.audio);
         setPublished(data.published);
         setDescJP(data.desc_jp);
+        setLevel(data.level)
       })
       .catch((err) => {
         console.log(err);
@@ -113,6 +116,8 @@ export default function EditPost({ params }) {
   };
 
   const handleSubmit = async () => {
+    const levelInt = parseInt(level, 10)
+
     try {
       const postResponse = await fetch(`${baseUrl}/api/posts/${params.id}`, {
         method: "PUT",
@@ -125,6 +130,7 @@ export default function EditPost({ params }) {
           desc: desc,
           desc_jp: descJP,
           slug: slug,
+          level: levelInt,
         }),
       });
 
@@ -208,6 +214,19 @@ export default function EditPost({ params }) {
             onChange={(e) => setDesc(e.target.value)}
             value={desc}
           ></textarea>
+          <div>
+          <p>Difficulty Level:</p>
+         <select
+          id="level"
+          name="level"
+          className="rounded-md px-4 py-2 my-2 border border-slate-300"
+          onChange={(e) => setLevel(e.target.value)}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+         </div>
           <textarea
             placeholder="翻訳"
             className="rounded-md px-4 py-2 w-full my-2 border border-slate-300  h-[300px] "

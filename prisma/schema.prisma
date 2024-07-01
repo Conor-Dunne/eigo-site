@@ -95,6 +95,7 @@ model Post {
   views     Int       @default(0)
   catSlug   String?
   cat       Category?  @relation(fields: [catSlug], references: [slug])
+  level     Int?
   keyWords  Vocabulary[]
 }
 

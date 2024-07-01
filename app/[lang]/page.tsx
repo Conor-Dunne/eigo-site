@@ -1,6 +1,7 @@
 import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 import ListItem from "./components/ListItem";
+import DisplayLevel from "./components//displayLevel";
 import Image from "next/image";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
 import Link from "next/link";
@@ -86,6 +87,7 @@ export default async function Home({
                   {allPosts[0].audio && (
                     <FaHeadphonesAlt className="text-white bg-slate-800 text-6xl rounded-sm p-3 absolute bottom-0 right-0" />
                   )}
+                  <DisplayLevel level={allPosts[0].level} />
                 </div>
                 <div className="flex flex-col gap-2">
                   <h2 className=" md:text-3xl">{allPosts[0].title}</h2>
@@ -98,8 +100,8 @@ export default async function Home({
             </Link>
             {/* All other posts */}
           </div>
-          {allPosts.slice(1).map((post: any, index: number) => (
-            <ListItem key={index} post={post} lang={lang}  />
+          {allPosts.slice(1).map((post: any, index: number, level: number,) => (
+            <ListItem key={index} post={post} lang={lang} level={level} />
           ))}
         </section>
       </div>

@@ -35,6 +35,7 @@ export default function CreatPost() {
   const [descJP, setDescJP] = useState("");
   const [vocab, setVocab] = useState([]);
   const [audio, setAudio] = useState(null);
+  const [level, setLevel] = useState(0);
 
   const handleAddVocab = (obj) => {
     setVocab(obj);
@@ -44,6 +45,7 @@ export default function CreatPost() {
 
   const handleSubmit = async () => {
     if (title.length === 0 || desc.length === 0) return;
+    const levelInt = parseInt(level, 10)
     try {
       const postResponse = await fetch(`${baseUrl}/api/posts`, {
         method: "POST",
@@ -54,6 +56,7 @@ export default function CreatPost() {
           img: imgSrc,
           slug: slug,
           desc_jp: descJP,
+          level: levelInt,
         }),
       });
 
@@ -136,6 +139,19 @@ export default function CreatPost() {
             onChange={(e) => setDesc(e.target.value)}
             required
           ></textarea>
+         <div>
+          <p>Difficulty Level:</p>
+         <select
+          id="level"
+          name="level"
+          className="rounded-md px-4 py-2 my-2 border border-slate-300"
+          onChange={(e) => setLevel(e.target.value)}
+        >
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+         </div>
           <textarea
             placeholder="翻訳"
             className="rounded-md px-4 py-2 w-full my-2 border border-slate-300  h-[300px] "

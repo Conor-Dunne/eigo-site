@@ -4,6 +4,8 @@ import getFormattedDate from "@/lib/getFormattedDate"
 import getExerpt from "@/lib/getExerpt";
 import { FaHeadphonesAlt } from "react-icons/fa";
 import { Locale } from "@/i18n.config";
+import DisplayLevel from "../components/displayLevel";
+
 
 
 
@@ -13,7 +15,7 @@ type Props = {
 }
 
 export default function ListItem({ post, lang }: Props) {
-    const { id, slug, createdAt,title, img , audio, } = post
+    const { id, slug, createdAt,title, img , audio, level } = post
 
 
     const formattedDate = getFormattedDate(createdAt)
@@ -34,6 +36,8 @@ export default function ListItem({ post, lang }: Props) {
                     className="object-cover w-full h-full rounded-md " 
                 />
                 {audio && <FaHeadphonesAlt className="text-white bg-slate-800 text-5xl md:text-4xl rounded-sm p-3 md:p-2 absolute bottom-0 right-0" />}
+                <DisplayLevel level={level} />
+
             </div>       
             <div className="flex flex-col gap-2">
             <h2>{title}</h2> 

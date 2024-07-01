@@ -7,4 +7,5 @@ type BlogPost = {
     audio: string,
     desc: string,
     desc_jp: string,
+    level: number,
 }
