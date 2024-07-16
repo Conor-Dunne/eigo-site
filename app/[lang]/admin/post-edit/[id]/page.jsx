@@ -234,7 +234,6 @@ export default function EditPost({ params }) {
             value={descJP}
             required
           ></textarea>
-          <p>{descJP}</p>
           <WordsAndPhrasesInput
             vocab={newVocab}
             addVocab={handleAddVocab}
