@@ -280,6 +280,13 @@ export default function EditPost({ params }) {
             <p>Loading vocabulary...</p>
           )}
 
+<button
+            className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"
+            onClick={handleSubmit}
+          >
+            Save
+          </button>
+
           <div className="my-5">
             <button
               className="font-semibold text-white px-4 py-2 shadow-xl bg-green-700 rounded-lg m-auto hover:bg-slate-100 w-full"
@@ -289,12 +296,7 @@ export default function EditPost({ params }) {
             </button>
           </div>
 
-          <button
-            className="font-semibold px-4 py-2 shadow-xl bg-slate-200 rounded-lg m-auto hover:bg-slate-100"
-            onClick={handleSubmit}
-          >
-            Save
-          </button>
+          
         </form>
       </div>
     </div>
