@@ -4,6 +4,7 @@ import ListItem from "./components/ListItem";
 import DisplayLevel from "./components//displayLevel";
 import Image from "next/image";
 import heroImg from "@/public/images/ian-dooley-DuBNA1QMpPA-unsplash.jpg";
+import spotifyIcon from "@/public/images/Spotify_Logo_RGB_Green.png"
 import Link from "next/link";
 import getFormattedDate from "@/lib/getFormattedDate";
 import getExerpt from "@/lib/getExerpt";
@@ -58,6 +59,14 @@ export default async function Home({
             style={{
               objectFit: "cover",
             }}
+            loading="lazy"
+          />
+        </div>
+        <div className=" absolute right-0 bottom-0 w-20 bg-slate-900 p-2 rounded-sm">
+        <Image
+            alt="Hot air balloons"
+            src={spotifyIcon}
+            quality={100}
             loading="lazy"
           />
         </div>

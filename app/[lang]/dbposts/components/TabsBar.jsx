@@ -14,7 +14,7 @@ export default function TabsBar(data) {
 
   return (
     <div>
-      <ul className="flex list-none p-0 m-0 gap-3">
+      <ul className="flex flex-wrap list-none p-0 m-0 gap-3">
         {tabs.map((tab, index) => (
           <li
             key={index}
