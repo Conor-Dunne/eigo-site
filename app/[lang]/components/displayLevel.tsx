@@ -1,7 +1,7 @@
-export default function DisplayLevel({ level }) {
+export default function DisplayLevel({ level } : { level: number }) {
     let style = "text-white text-sm rounded-sm p-3 absolute bottom-0 left-0";
 
-    let levelStyle = function(level) {
+    let levelStyle = function(level: number) {
         switch (level) {
             case 1:
                 return "bg-green-300";

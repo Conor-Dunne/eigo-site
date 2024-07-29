@@ -10,6 +10,7 @@ import getFormattedDate from "@/lib/getFormattedDate";
 import getExerpt from "@/lib/getExerpt";
 import { FaHeadphonesAlt } from "react-icons/fa";
 
+
 export default async function Home({
   params: { lang },
 }: {
@@ -62,21 +63,15 @@ export default async function Home({
             loading="lazy"
           />
         </div>
-        <div className=" absolute right-0 bottom-0 w-20 bg-slate-900 p-2 rounded-sm">
-        <Image
-            alt="Hot air balloons"
-            src={spotifyIcon}
-            quality={100}
-            loading="lazy"
-          />
-        </div>
+       
       </div>
-      <div>
+      <div className=" relative">
         {/* <div className="flex justify-center py-10">
           <h2 className=" text-md font-light text-xs md:text-sm text-slate-500 text-center">
             {page.home.description}
           </h2>
         </div> */}
+      
         <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 px-3 py-4 xl:px-40">
           {/* Newest post  */}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2">
@@ -113,6 +108,19 @@ export default async function Home({
             <ListItem key={index} post={post} lang={lang} />
           ))}
         </section>
+        <div className="sticky bottom-0 right-0 w-20 bg-slate-900 p-2 rounded-sm">
+        <Link
+        href={"https://open.spotify.com/show/64j99I2iV3V3WvbTrTT5Z6?si=4aae4694b1324b96"}
+        target="_blank"
+        >
+        <Image
+            alt="Spotify Icon"
+            src={spotifyIcon}
+            quality={100}
+            loading="lazy"
+          />
+        </Link>
+        </div>
       </div>
     </>
   );
