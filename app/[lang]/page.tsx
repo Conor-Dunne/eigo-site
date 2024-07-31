@@ -108,7 +108,7 @@ export default async function Home({
             <ListItem key={index} post={post} lang={lang} />
           ))}
         </section>
-        <div className="sticky bottom-0 right-0 w-20 bg-slate-900 p-2 rounded-sm">
+        <div className="fixed bottom-0 right-0 w-20 bg-slate-900 p-2 rounded-sm">
         <Link
         href={"https://open.spotify.com/show/64j99I2iV3V3WvbTrTT5Z6?si=4aae4694b1324b96"}
         target="_blank"
