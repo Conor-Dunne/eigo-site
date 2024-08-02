@@ -5,19 +5,25 @@ import { Locale } from '@/i18n.config'
 import { getDictionary } from '@/lib/dictionary'
 import { Translate } from '@google-cloud/translate/build/src/v2';
 
+type postTypes = {
+  params: {
+    id: string;
+    lang: Locale;
+  }
+}
 
 const translate = new Translate({
   keyFilename: process.env.GOOGLE_APPLICATION_CREDENTIALS,
 });
 
-const translateWord = async (word) => {
+const translateWord = async (word: string) => {
   const [translation] = await translate.translate(word, { from: 'en', to: 'ja' });
   return translation;
 };
 
 
 
-const SinglePage = async ({ params }) => {
+const SinglePage = async ({ params } : postTypes) => {
   const { id, lang } = params;
   const { page } = await getDictionary(lang)
   const data = await getData(id);
