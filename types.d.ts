@@ -8,4 +8,7 @@ type BlogPost = {
     desc: string,
     desc_jp: string,
     level: number,
+    published: boolean,
+    level: number,
+    
 }
