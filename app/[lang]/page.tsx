@@ -74,7 +74,7 @@ export default async function Home({
       
         <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-1 px-3 py-4 xl:px-40">
           {/* Newest post  */}
-          <div className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-2">
+          <div className="col-span-1 md:col-span-2 lg:col-span-2 md:row-span-1">
             <Link
               className=" font-bold text- hover:text-black/70 dark:hover:text-white"
               href={`/dbposts/${allPosts[0].id}`}

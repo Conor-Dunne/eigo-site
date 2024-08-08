@@ -4,13 +4,32 @@ import pluralize from "pluralize";
 import { GB, JP } from "country-flag-icons/react/3x2";
 import Loading from "./loading";
 
-export default function WordModal({ word, japanese, searchByEngBoolean }) {
+type WordModalTypes = {
+  word: string,
+  japanese: string,
+  searchByEngBoolean: string;
+}
+
+type Translation = {
+  text: string;
+};
+
+type TatoebaObj = {
+  text: string;
+  translations: Translation[][];
+};
+
+type dictionaryData = {
+  phonetic: string
+}
+
+export default function WordModal({ word, japanese, searchByEngBoolean } : WordModalTypes) {
   const [display, setDisplay] = useState(false);
-  const [dictionaryData, setDictionaryData] = useState(null);
-  const [exampleData, setExampleData] = useState(null);
-  const [exampleLoading, setExampleLoading] = useState(true);
+  const [dictionaryData, setDictionaryData] = useState<dictionaryData[] | null>(null);
+  const [exampleData, setExampleData] = useState<TatoebaObj[] | null>(null);
+  const [exampleLoading, setExampleLoading] = useState<boolean>(true);
   const [dictionaryApiLoading, setDictionaryApiLoading] = useState(true);
-  const [dictionaryDataResponse, setDictionaryDataResponse] = useState(null);
+  const [dictionaryDataResponse, setDictionaryDataResponse] = useState<number | null>(null);
 
   const cleanWord = word.replace(/[.,]/g, "").toLowerCase();
   const singularWord = pluralize.singular(cleanWord);
@@ -41,12 +60,14 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
       const exampleResponse = await fetch(
         `https://api.dev.tatoeba.org/unstable/sentences?${
           searchByEngBoolean ? searchByEng : searchByJpn
-        }&limit=10&sort=text`
+        }`
       );
       const exampleData = await exampleResponse.json();
 
+     
 
-      const filteredData = exampleData.data.sort((a, b) => a.text.length - b.text.length);
+
+      const filteredData = exampleData.data.sort((a : TatoebaObj, b : TatoebaObj) => a.text.length - b.text.length);
 
       const noOfExamples = filteredData.length >= 3 ? filteredData.slice(0, 3) : filteredData;
 
@@ -68,7 +89,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
   }, [word, japanese, display]);
 
 
-  function speak(input) {
+  function speak(input: string) {
     const synth = window.speechSynthesis;
     if (!synth) {
       console.error("no tts");
@@ -146,7 +167,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
             ) : (
               <p>{dictionaryApiLoading ? <Loading /> : null}</p>
             )} */}
-            {!exampleLoading && exampleData.length > 0 ? (
+            {!exampleLoading && exampleData && exampleData.length > 0 ? (
               <div className="flex flex-col text-sm w-full p-2 bg-slate-200">
                 <div className="flex flex-col">
                   <div>
@@ -154,7 +175,7 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                       {exampleData.map(
                         (
                           obj,
-                          index // Added parentheses and index parameter
+                          index : number // Added parentheses and index parameter
                         ) => (
                           <li key={index}>
                             {" "}
@@ -167,14 +188,11 @@ export default function WordModal({ word, japanese, searchByEngBoolean }) {
                                     (array) => array.length > 0 && array[0].text
                                   )}
                             </p>
-                            {/* <button
-        onClick={() => speak(obj.text)}
-        >&#x1F508;</button> */}
                           </div>
                             <p className="my-2 font-thin">
                               {searchByEngBoolean
                                 ? obj.translations.map(
-                                    (array) => array.length > 0 && array[0].text
+                                    (array ) => array.length > 0 && array[0].text
                                   )
                                 : obj.text}
                             </p>
