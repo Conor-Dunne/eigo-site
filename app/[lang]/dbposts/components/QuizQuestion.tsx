@@ -2,18 +2,18 @@
 
 import React, { useState, useEffect } from "react";
 
-export default function QuizQuestion({ line }) {
+export default function QuizQuestion({ line } : {line : string}) {
   const [answer, setAnswer] = useState("");
-  const [clozeSentence, setClozeSentence] = useState({
+  const [clozeSentence, setClozeSentence] = useState<{clozeSentence : string, cloze: string}>({
     clozeSentence: "",
     cloze: "",
   });
 
   useEffect(() => {
-    function generateClozeSentence(sentence) {
+    function generateClozeSentence(sentence : string) {
       let trimmedSentence = sentence.trim();
       let sentenceArray = trimmedSentence.match(/\w+(?:'\w+)*/g)
-      let cloze = sentenceArray[Math.floor(Math.random() * sentenceArray.length)];
+      let cloze = sentenceArray ? sentenceArray[Math.floor(Math.random() * sentenceArray.length)] : "";
       
       // Create a regular expression to match the whole word, considering punctuation
       let clozeRegex = new RegExp(`\\b${cloze}\\b`, 'g');
@@ -33,7 +33,7 @@ export default function QuizQuestion({ line }) {
     setClozeSentence(generateClozeSentence(line));
   }, [line]);
 
-  function speak(input) {
+  function speak(input : string) {
     const synth = window.speechSynthesis;
     if (!synth) {
       console.error("no tts");
@@ -46,7 +46,7 @@ export default function QuizQuestion({ line }) {
     synth.speak(utterance);
   }
 
-  function checkAnswer(input, cloze) {
+  function checkAnswer(input : string, cloze : string) {
     
     return input.trim().localeCompare(cloze, undefined, { sensitivity: 'base' }) === 0;
   }
