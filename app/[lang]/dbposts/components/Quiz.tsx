@@ -1,8 +1,7 @@
 import QuizQuestion from "./QuizQuestion";
 
-export default function Quiz({ data }) {
+export default function Quiz({ data } : { data: { data: {desc : string, desc_jp : string}}}) {
   const articleData = data.data;
-
   const lineByLine = articleData.desc.split(".");
   const jp = articleData.desc_jp?.split("。");
 
