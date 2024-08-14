@@ -1,10 +1,24 @@
 import reactStringReplace from 'react-string-replace';
 import WordModal from "./WordModal";
 
+type Word = {
+    id: string,
+    English: string,
+    Japanese: string,
+    searchByEng: boolean,
+}
 
-export default async function ContentWithPopupsNew({ content, keyWords }) {
+type Props = {
+  content: string;
+  keyWords: Word[] 
+    
+  }
 
-let replacedContent = content
+
+
+export default async function ContentWithPopupsNew({ content, keyWords } : Props) {
+
+let replacedContent: string | React.ReactNode[] = content
 
 
 keyWords.forEach((word, index) => {

@@ -1,10 +1,10 @@
-export default function LineByLine({ data }) {
+export default function LineByLine({ data } : { data: { data: {desc : string, desc_jp : string}}}) {
   const articleData = data.data;
 
   const lineByLine = articleData.desc.split(".");
   const jp = articleData.desc_jp?.split("。");
 
-  function speak(input) {
+  function speak(input : string) {
     const synth = window.speechSynthesis;
     if (!synth) {
       console.error("no tts");

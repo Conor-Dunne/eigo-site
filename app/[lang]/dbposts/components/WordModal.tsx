@@ -7,7 +7,7 @@ import Loading from "./loading";
 type WordModalTypes = {
   word: string,
   japanese: string,
-  searchByEngBoolean: string;
+  searchByEngBoolean: boolean;
 }
 
 type Translation = {
