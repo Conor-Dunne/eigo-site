@@ -1,6 +1,6 @@
 
 
-export default async function ArticleJP({ data }) {
+export default async function ArticleJP({ data } : { data: { data: BlogPost}}) {
     const articleData = data.data;
 
   return (

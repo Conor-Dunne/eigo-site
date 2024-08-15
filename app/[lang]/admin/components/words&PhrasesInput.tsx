@@ -1,6 +1,19 @@
 import { useState } from "react";
 
-export default function WordsAndPhrasesInput({ vocab, addVocab, slug }) {
+type VocabTypes = {
+  English: string,
+  Japanese: string,
+  partOfSpeech: string,
+  postSlug: string,
+}
+
+type Props = {
+  vocab: VocabTypes[],
+  addVocab: (newVocab: VocabTypes[]) => void,
+  slug: string,
+}
+
+export default function WordsAndPhrasesInput({ vocab, addVocab, slug } : Props) {
   const [eng, setEng] = useState("");
   const [jpn, setJpn] = useState("");
   const [partOfSpeech, setPartOfSpeech] = useState("null");

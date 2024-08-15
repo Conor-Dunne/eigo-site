@@ -10,5 +10,13 @@ type BlogPost = {
     level: number,
     published: boolean,
     level: number,
+    keyWords: Word[],
     
+}
+
+type Word = {
+    id: string,
+    English: string,
+    Japanese: string,
+    searchByEng: boolean,
 }

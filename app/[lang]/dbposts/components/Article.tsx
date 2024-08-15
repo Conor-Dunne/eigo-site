@@ -4,7 +4,7 @@ import ContentWithPopupsNew from "./ContentWithPopupsNew";
 
 
 
-export default async function Article({ data }) {
+export default async function Article({ data } : { data: { data : BlogPost, }}) {
     const articleData = data.data;
 
   return (
