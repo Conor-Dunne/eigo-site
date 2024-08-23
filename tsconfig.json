@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sounds.d.ts", "app/[lang]/admin/dashboard/page.jsx", "app/[lang]/admin/login/form.jsx", "app/[lang]/api/auth/[...nextauth]/routes.jsx", "app/[lang]/dbposts/loading.jsx", "app/[lang]/dbposts/loading.jsx", "app/[lang]/page.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "sounds.d.ts", "app/[lang]/admin/dashboard/page.tsx", "app/[lang]/admin/login/form.jsx", "app/[lang]/api/auth/[...nextauth]/routes.jsx", "app/[lang]/dbposts/loading.jsx", "app/[lang]/dbposts/loading.jsx", "app/[lang]/page.jsx"],
   "exclude": ["node_modules"]
 }

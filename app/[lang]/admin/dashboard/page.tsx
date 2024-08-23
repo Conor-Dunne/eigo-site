@@ -1,9 +1,10 @@
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
+import { Post } from "@prisma/client";
 import Link from "next/link";
 
 export default async function Dashboard() {
-  const getData = async (slug) => {
+  const getData = async () => {
     const baseUrl =
       process.env.NODE_ENV === "production"
         ? "https://eigo-site.vercel.app"
@@ -27,7 +28,7 @@ export default async function Dashboard() {
     <div className="flex flex-col items-center gap-4 pt-7 mx-3">
       <h1 className=" font-bold text-4xl underline p-6">DASHBOARD</h1>
       <ul className="flex flex-col items-left gap-8">
-        {posts.map((post) => (
+        {posts.map((post : Post) => (
           <li key={post.id}>
             <div className="flex gap-4 justify-between items-center ">
 
