@@ -104,7 +104,7 @@ export default async function Home({
             </Link>
             {/* All other posts */}
           </div>
-          {allPosts.slice(1).map((post: any, index: number) => (
+          {allPosts.slice(1).map((post: BlogPost, index: number) => (
             <ListItem key={index} post={post} lang={lang} />
           ))}
         </section>
